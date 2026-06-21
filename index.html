@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seoul · July 4–13, 2026 — Field Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Song+Myung&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F0E6;
+  --paper-2:#EDE6D6;
+  --ink:#221E15;
+  --ink-soft:#5C5648;
+  --hairline:#C9BFA9;
+  --accent:#B93A21;          /* dancheong persimmon */
+  --accent-deep:#8E2C18;
+  --amber:#9A6B14;
+  --green:#2F5D3A;
+  --l1:#0052A4;--l2:#00A84D;--l3:#EF7C1C;--l4:#00A5DE;--l5:#996CAC;--l6:#CD7C2F;--l9:#BDB092;
+  --arex:#0090D2;--gj:#77C4A3;--sb:#F5A200;--walk:#6B6354;--taxi:#3E3A30;--bus:#3D6B35;
+  --display:'Young Serif',serif;
+  --body:'Hanken Grotesk',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --kr:'Song Myung',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1000;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--accent);color:var(--paper)}
+
+/* ---------- masthead ---------- */
+.masthead{
+  max-width:880px;margin:0 auto;padding:64px 28px 40px;position:relative;overflow:hidden;
+}
+.masthead .kicker{
+  font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);display:flex;align-items:center;gap:14px;
+}
+.masthead .kicker::after{content:"";flex:1;height:1px;background:var(--hairline)}
+.masthead h1{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(56px,11vw,116px);line-height:.96;letter-spacing:-.015em;
+  margin:18px 0 6px;
+}
+.masthead h1 .kr-big{
+  font-family:var(--kr);display:block;font-size:.42em;color:var(--accent);
+  letter-spacing:.3em;margin-top:10px;
+}
+.mast-sub{
+  display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:26px;
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);letter-spacing:.04em;
+}
+.mast-sub b{color:var(--ink);font-weight:600}
+.mast-rule{max-width:880px;margin:0 auto;padding:0 28px}
+.mast-rule hr{border:0;border-top:3px solid var(--ink)}
+.mast-rule hr+hr{border-top:1px solid var(--ink);margin-top:3px}
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky;top:0;z-index:900;background:var(--paper);
+  border-bottom:1px solid var(--hairline);
+}
+.nav-inner{
+  max-width:880px;margin:0 auto;padding:10px 22px;display:flex;gap:6px;overflow-x:auto;
+  scrollbar-width:none;
+}
+.nav-inner::-webkit-scrollbar{display:none}
+nav a{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;white-space:nowrap;
+  color:var(--ink-soft);text-decoration:none;padding:6px 11px;border:1px solid transparent;
+  border-radius:2px;transition:all .15s;
+}
+nav a:hover{color:var(--ink);border-color:var(--hairline)}
+nav a.active{background:var(--ink);color:var(--paper)}
+nav a.accent{color:var(--accent)}
+nav a.accent.active{background:var(--accent);color:var(--paper)}
+
+/* ---------- shared ---------- */
+.wrap{max-width:880px;margin:0 auto;padding:0 28px}
+.section-label{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--accent);display:flex;align-items:center;gap:14px;margin-bottom:18px;
+}
+.section-label::after{content:"";flex:1;height:1px;background:var(--hairline)}
+
+/* ---------- glance table ---------- */
+.glance{padding:54px 28px 10px}
+.glance-grid{border-top:2px solid var(--ink)}
+.g-row{
+  display:grid;grid-template-columns:96px 64px 1fr auto;gap:14px;align-items:baseline;
+  padding:11px 4px;border-bottom:1px solid var(--hairline);text-decoration:none;color:inherit;
+  transition:background .15s;
+}
+.g-row:hover{background:var(--paper-2)}
+.g-row .gd{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.05em}
+.g-row .gn{font-family:var(--mono);font-size:11px;color:var(--accent)}
+.g-row .gt{font-weight:600;font-size:15px}
+.g-row .gt small{font-weight:400;color:var(--ink-soft);font-size:13px}
+.g-row .ga{font-family:var(--mono);font-size:11px;color:var(--ink-soft);text-align:right}
+@media(max-width:560px){.g-row{grid-template-columns:84px 1fr}.g-row .gn,.g-row .ga{display:none}}
+
+/* ---------- briefing cards ---------- */
+.briefing{padding:54px 28px 14px}
+.brief-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:680px){.brief-grid{grid-template-columns:1fr}}
+.bcard{
+  border:1px solid var(--ink);padding:20px 20px 16px;background:var(--paper);
+  position:relative;
+}
+.bcard.full{grid-column:1/-1}
+.bcard h3{
+  font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:12px;display:flex;align-items:center;gap:8px;
+}
+.bcard h3::before{content:"";width:8px;height:8px;background:var(--accent)}
+.bcard ul{list-style:none}
+.bcard li{
+  padding:7px 0;border-top:1px dashed var(--hairline);font-size:14px;
+  display:flex;gap:10px;align-items:baseline;
+}
+.bcard li:first-of-type{border-top:0}
+.bcard li .when{
+  font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.05em;
+  color:var(--paper);background:var(--accent);padding:2px 7px;white-space:nowrap;flex-shrink:0;
+}
+.bcard li .when.soft{background:var(--ink)}
+.bcard li .when.amb{background:var(--amber)}
+.bcard p{font-size:14px;color:var(--ink-soft)}
+.bcard p+p{margin-top:8px}
+.bcard p b{color:var(--ink)}
+
+/* ---------- day section ---------- */
+.day{padding:64px 28px 8px}
+.day-head{margin-bottom:34px}
+.day-banner{
+  display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;
+  border-top:3px solid var(--ink);padding-top:4px;margin-bottom:2px;
+}
+.day-banner::before{content:"";display:block;width:100%;height:1px;background:var(--ink);margin-bottom:14px}
+.day-no{
+  font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.2em;color:var(--accent);
+}
+.day-date{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--ink-soft)}
+.day h2{
+  font-family:var(--display);font-weight:400;font-size:clamp(34px,5.6vw,52px);
+  line-height:1.04;margin:10px 0 4px;
+}
+.day h2 .kr{
+  font-family:var(--kr);font-size:.45em;color:var(--accent);letter-spacing:.18em;
+  display:inline-block;margin-left:14px;vertical-align:baseline;
+}
+.day-route{
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ink-soft);
+  text-transform:uppercase;margin-bottom:14px;
+}
+.day-lede{max-width:640px;font-size:15.5px;color:var(--ink-soft);margin-bottom:16px}
+.day-lede b{color:var(--ink)}
+.flags{display:flex;flex-wrap:wrap;gap:7px}
+.flag{
+  font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.06em;
+  padding:4px 9px;border:1px solid;text-transform:uppercase;
+}
+.flag.closed{color:var(--accent-deep);border-color:var(--accent-deep);background:rgba(185,58,33,.07)}
+.flag.book{color:var(--amber);border-color:var(--amber);background:rgba(154,107,20,.07)}
+.flag.go{color:var(--green);border-color:var(--green);background:rgba(47,93,58,.07)}
+.flag.rain{color:#3D5A80;border-color:#3D5A80;background:rgba(61,90,128,.07)}
+
+/* ---------- timeline ---------- */
+.tl{list-style:none;position:relative;padding-left:86px}
+.tl::before{
+  content:"";position:absolute;left:62px;top:8px;bottom:8px;width:2px;
+  background:var(--ink);opacity:.16;
+}
+@media(max-width:560px){
+  .tl{padding-left:0}
+  .tl::before{display:none}
+}
+.stop{position:relative;padding:0 0 30px}
+.stop .t{
+  position:absolute;left:-86px;top:3px;width:52px;text-align:right;
+  font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.02em;
+}
+.stop::before{
+  content:"";position:absolute;left:-28px;top:8px;width:10px;height:10px;
+  background:var(--paper);border:2.5px solid var(--ink);border-radius:50%;
+}
+.stop.hl::before{background:var(--accent);border-color:var(--accent)}
+@media(max-width:560px){
+  .stop .t{position:static;display:block;width:auto;text-align:left;margin-bottom:4px;color:var(--accent)}
+  .stop::before{display:none}
+}
+.stop h3{
+  font-family:var(--display);font-weight:400;font-size:21px;line-height:1.2;
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;
+}
+.stop h3 .kr{font-family:var(--kr);font-size:13.5px;color:var(--ink-soft);letter-spacing:.06em}
+.stop h3 .stag{
+  font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.08em;padding:3px 7px;
+  text-transform:uppercase;position:relative;top:-2px;
+}
+.stag.red{background:var(--accent);color:var(--paper)}
+.stag.amb{background:var(--amber);color:var(--paper)}
+.stag.grn{background:var(--green);color:var(--paper)}
+.stag.opt{border:1px solid var(--ink-soft);color:var(--ink-soft)}
+.stop .desc{font-size:14.5px;color:var(--ink);max-width:620px;margin-top:5px}
+.stop .meta{
+  display:flex;flex-wrap:wrap;gap:5px 18px;margin-top:9px;
+  font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:.02em;
+}
+.stop .meta span::before{content:"· ";color:var(--accent);font-weight:600}
+.stop .tip{
+  margin-top:9px;font-size:13.5px;color:var(--ink-soft);max-width:600px;
+  padding-left:16px;position:relative;
+}
+.stop .tip::before{content:"↳";position:absolute;left:0;color:var(--accent);font-weight:700}
+.stop .tip b{color:var(--ink)}
+
+/* place photos */
+.ph{margin:10px 0 2px;max-width:620px}
+.ph img{display:block;width:100%;height:220px;object-fit:cover;border:1px solid var(--ink);filter:saturate(.9) contrast(.98)}
+.xcard .ph{max-width:none;margin:2px 0 12px}
+.xcard .ph img{height:150px;border-color:var(--hairline)}
+@media(max-width:560px){.ph img{height:170px}}
+@media print{.ph img{height:120px}}
+
+/* transit leg */
+.leg{
+  position:relative;padding:0 0 30px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;
+}
+.leg::before{
+  content:"";position:absolute;left:-25px;top:2px;height:16px;width:4px;
+  background:repeating-linear-gradient(to bottom,var(--accent) 0 3px,transparent 3px 6px);
+}
+@media(max-width:560px){.leg::before{display:none}.leg{padding-bottom:24px}}
+.mode{
+  font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;
+  color:#fff;padding:3px 8px;display:inline-flex;align-items:center;gap:6px;
+}
+.mode::before{content:"";width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.85)}
+.mode.walk{background:var(--walk)}
+.mode.taxi{background:var(--taxi)}
+.mode.bus{background:var(--bus)}
+.mode.l1{background:var(--l1)}.mode.l2{background:var(--l2)}.mode.l3{background:var(--l3)}
+.mode.l4{background:var(--l4)}.mode.l5{background:var(--l5)}.mode.l6{background:var(--l6)}
+.mode.l9{background:var(--l9);color:#3a3525}.mode.l9::before{background:rgba(58,53,37,.7)}
+.mode.arex{background:var(--arex)}.mode.gj{background:var(--gj);color:#1e3a2c}.mode.gj::before{background:rgba(30,58,44,.7)}
+.leg .lt{font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:.03em}
+
+/* day footer note */
+.day-note{
+  margin:6px 0 0 86px;padding:14px 18px;border-left:3px solid var(--accent);
+  background:var(--paper-2);font-size:13.5px;color:var(--ink-soft);max-width:600px;
+}
+.day-note b{color:var(--ink)}
+@media(max-width:560px){.day-note{margin-left:0}}
+
+/* ---------- extras ---------- */
+.extras{padding:70px 28px 30px}
+.x-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+@media(max-width:680px){.x-grid{grid-template-columns:1fr}}
+.xcard{border:1px solid var(--hairline);padding:18px;background:var(--paper)}
+.xcard h4{
+  font-family:var(--display);font-weight:400;font-size:18px;margin-bottom:4px;
+  display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;
+}
+.xcard .meta{
+  font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);margin-bottom:8px;letter-spacing:.03em;
+}
+.xcard p{font-size:13.5px;color:var(--ink-soft)}
+.xcard p b{color:var(--ink)}
+.skip-list{margin-top:14px;border:1px solid var(--accent-deep);padding:18px;background:rgba(185,58,33,.05)}
+.skip-list h4{
+  font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent-deep);margin-bottom:10px;
+}
+.skip-list li{
+  list-style:none;font-size:13.5px;padding:6px 0;border-top:1px dashed var(--hairline);color:var(--ink-soft);
+}
+.skip-list li:first-of-type{border-top:0}
+.skip-list li b{color:var(--ink)}
+
+/* ---------- footer ---------- */
+footer{
+  margin-top:60px;border-top:3px solid var(--ink);
+}
+footer .inner{
+  max-width:880px;margin:0 auto;padding:30px 28px 60px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+  font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:.06em;
+}
+footer .kr{font-family:var(--kr);color:var(--accent);font-size:14px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.rv.in{opacity:1;transform:none}
+
+@media print{
+  nav,.masthead::after{display:none}
+  body::before{display:none}
+  .day{padding-top:30px}
+  .stop,.leg,.bcard,.xcard{break-inside:avoid}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="kicker">Field Plan · Eight Days From a Hongdae Doorstep</div>
+  <h1>SEOUL<span class="kr-big">서울 · 二〇二六</span></h1>
+  <div class="mast-sub">
+    <span><b>JUL 4 → 13, 2026</b></span>
+    <span>BASE <b>9 WAUSAN-RO 13-GIL</b> · MAPO-GU</span>
+    <span>NEAREST <b>HONGIK UNIV STN</b> (L2 · AREX · GYEONGUI) + <b>SANGSU STN</b> (L6)</span>
+    <span>SUNSET ALL WEEK <b>≈ 19:55</b></span>
+  </div>
+</header>
+<div class="mast-rule"><hr><hr></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#brief" class="accent">BRIEFING</a>
+    <a href="#glance">AT A GLANCE</a>
+    <a href="#d0">ARRIVE</a>
+    <a href="#d1">D1 HONGDAE</a>
+    <a href="#d2" class="accent">D2 MSI</a>
+    <a href="#d3">D3 PALACE E</a>
+    <a href="#d4">D4 PALACE W</a>
+    <a href="#d5">D5 YONGSAN</a>
+    <a href="#d6">D6 SEONGSU</a>
+    <a href="#d7" class="accent">D7 WEDDING</a>
+    <a href="#d8">D8 FINALE</a>
+    <a href="#dep">DEPART</a>
+    <a href="#extras" class="accent">EXTRAS</a>
+  </div>
+</nav>
+
+<!-- ================= BRIEFING ================= -->
+<section class="briefing" id="brief">
+  <div class="wrap" style="padding:0">
+    <div class="section-label">Before You Fly — Do These In Order</div>
+    <div class="brief-grid">
+      <div class="bcard rv">
+        <h3>Bookings &amp; Deadlines</h3>
+        <ul>
+          <li><span class="when">JUL 1 · 10:00 KST</span><span><b>Changdeokgung Secret Garden</b> — slots open exactly 6 days ahead at royal.khs.go.kr. Grab the <b>10:30 English tour for Tue Jul 7</b> (moved off Wednesday onto the new east-palace day; 50 online seats, gone in a day or two).</span></li>
+          <li><span class="when soft">NOW</span><span><b>Leeum Museum</b> — free, but slots sell out. Reserve <b>10:00 Thu Jul 9</b> at leeum.org (now the anchor of the Yongsan museum day).</span></li>
+          <li><span class="when amb">OPTIONAL</span><span><b>Seoul Sky</b> (Klook ≈ 35% off gate ₩31,000), <b>NANTA</b> (Klook/Trip.com 20–40% off), <b>E-Land Moonlight cruise</b> (no same-day booking — 1+ day ahead).</span></li>
+          <li><span class="when amb">LOL · JUL 6</span><span><b>MSI 2026 is in Daejeon during your dates</b> (Jun 28–Jul 12) — <b>Monday Jul 6 is blocked for a bracket-day trip</b> (Day 2). Grab seats on NOL World / Interpark Global the moment they drop; if nothing lands, Day 2 falls back to the palace plan.</span></li>
+          <li><span class="when amb">ON ARRIVAL</span><span><b>T-money card</b> at any ICN convenience store; load ₩30–40k. Markets and tent bars run on <b>cash</b> — carry ₩50–100k.</span></li>
+        </ul>
+      </div>
+      <div class="bcard rv">
+        <h3>Phone Setup</h3>
+        <ul>
+          <li><span class="when soft">MAPS</span><span><b>Naver Map</b> (English UI) — Google Maps can't route walking/driving in Korea. All times in this plan come from real transit routes; re-check live in Naver.</span></li>
+          <li><span class="when soft">TAXI</span><span><b>Kakao T</b> — works with foreign cards. Hail before 19:00 near Banpo on fountain nights; taxis get scarce.</span></li>
+          <li><span class="when soft">QUEUES</span><span><b>CatchTable</b> — remote waitlist for queue cafes (London Bagel Museum etc.).</span></li>
+          <li><span class="when soft">PICNIC</span><span><b>Baemin / Coupang Eats</b> — chicken-and-beer delivered to numbered signs in Hangang parks. Both take international cards.</span></li>
+        </ul>
+      </div>
+      <div class="bcard full rv">
+        <h3>The Jangma Clause — July Is Monsoon Season</h3>
+        <p>Expect <b>29–33°C, 80% humidity</b>, and sudden torrential bursts between steamy clear gaps — not all-day drizzle. Carry a compact umbrella always; wear quick-dry, not cotton. The plan already front-loads outdoor stops before 11:00 and after 17:30, and every day has an air-conditioned anchor.</p>
+        <p><b>If a day washes out, swap in:</b> The Hyundai Seoul · National Museum of Korea (free, open every day of your trip) · Starfield COEX · Mangwon Market (covered arcade) · Seoul Sky (check the view webcam first) · any department-store food hall. Cheonggyecheon floods and closes in heavy rain — sirens mean leave the channel. Banpo fountain and river cruises cancel in rain/wind; the fountain is your Day 1 night show, so slide it to any clear evening if Day 1 washes out.</p>
+        <p><b>What you can't get in July:</b> Gyeongbokgung night opening (spring session ended Jun 14, resumes Sep) and the Hangang Summer Festival (starts Jul 26). The Banpo Moonlight Rainbow Fountain runs nightly all July — that's your free night show, set for Day 1.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GLANCE ================= -->
+<section class="glance" id="glance">
+  <div class="wrap" style="padding:0">
+    <div class="section-label">The Week at a Glance</div>
+    <div class="glance-grid">
+      <a class="g-row rv" href="#d0"><span class="gd">SAT 7/4</span><span class="gn">ARR</span><span class="gt">Land &amp; Settle <small>— AREX straight to your door</small></span><span class="ga">HONGDAE</span></a>
+      <a class="g-row rv" href="#d1"><span class="gd">SUN 7/5</span><span class="gn">D1</span><span class="gt">Home Turf <small>— Yeonnam, T1 Base Camp, river sunset</small></span><span class="ga">WEST / EASY</span></a>
+      <a class="g-row rv" href="#d2"><span class="gd">MON 7/6</span><span class="gn">D2</span><span class="gt">MSI in Daejeon <small>— KTX down, fan fest, bracket-day Bo5</small></span><span class="ga">DAEJEON</span></a>
+      <a class="g-row rv" href="#d3"><span class="gd">TUE 7/7</span><span class="gn">D3</span><span class="gt">Royal Seoul, East <small>— Changdeokgung, Secret Garden, Bukchon</small></span><span class="ga">JONGNO</span></a>
+      <a class="g-row rv" href="#d4"><span class="gd">WED 7/8</span><span class="gn">D4</span><span class="gt">Royal Seoul, West <small>— Gyeongbokgung, Jongmyo, Deoksugung</small></span><span class="ga">GWANGHWAMUN</span></a>
+      <a class="g-row rv" href="#d5"><span class="gd">THU 7/9</span><span class="gn">D5</span><span class="gt">Yongsan &amp; Museums <small>— Leeum, War Memorial, Nat'l Museum, Gwangjang</small></span><span class="ga">YONGSAN</span></a>
+      <a class="g-row rv" href="#d6"><span class="gd">FRI 7/10</span><span class="gn">D6</span><span class="gt">South of the River <small>— Seongsu, COEX, Seoul Sky</small></span><span class="ga">GANGNAM</span></a>
+      <a class="g-row rv" href="#d7"><span class="gd">SAT 7/11</span><span class="gn">D7</span><span class="gt">Seongwook's Wedding <small>— the whole day, reserved</small></span><span class="ga">RESERVED</span></a>
+      <a class="g-row rv" href="#d8"><span class="gd">SUN 7/12</span><span class="gn">D8</span><span class="gt">West Side Finale <small>— Ewha, Yeouido, Seonyudo, galbi</small></span><span class="ga">WEST</span></a>
+      <a class="g-row rv" href="#dep"><span class="gd">MON 7/13</span><span class="gn">DEP</span><span class="gt">Fly Home <small>— AREX from Hongik, arrive 3h early</small></span><span class="ga">ICN</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DAY 0 ARRIVAL ================= -->
+<section class="day" id="d0">
+  <div class="day-head">
+    <div class="day-banner"><span class="day-no">ARRIVAL</span><span class="day-date">SATURDAY · JULY 4</span></div>
+    <h2>Land &amp; Settle<span class="kr">도착</span></h2>
+    <div class="day-route">ICN → Hongik Univ Stn → 9 Wausan-ro 13-gil</div>
+    <p class="day-lede">The PDF routed you through Seoul Station — skip that. Your Airbnb sits on the <b>AREX all-stop line</b>: one train, airport to your neighborhood, no transfer.</p>
+    <div class="flags"><span class="flag go">SAT BUSKING PEAK 19:00–22:00</span><span class="flag go">LAST AREX FROM T1 23:38 / T2 23:32</span></div>
+  </div>
+  <ol class="tl">
+    <li class="stop rv"><div class="t">—</div>
+      <h3>Incheon T1/T2 → AREX All-Stop Train <span class="kr">공항철도</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/AREX_2000%2C_Gyeyang_%2820240407%29_%2854219624992%29.jpg/960px-AREX_2000%2C_Gyeyang_%2820240407%29_%2854219624992%29.jpg" alt="AREX all-stop commuter train"></figure>
+      <p class="desc">Take the blue <b>all-stop</b> commuter train, not the orange Express — the Express skips Hongik entirely. Tap in with the T-money card you just bought.</p>
+      <div class="meta"><span>T1 → HONGIK ≈ 50 MIN</span><span>T2 ≈ 58 MIN</span><span>₩4,500 W/ T-MONEY</span><span>EVERY ~10 MIN</span></div>
+      <p class="tip">Immigration + bags usually eat about an hour. If you land after ~22:30, the train still works; after midnight it's a taxi (₩55–70k, 50 min).</p>
+    </li>
+    <li class="leg rv"><span class="mode arex">AREX ALL-STOP</span><span class="lt">50–58 min, direct</span></li>
+    <li class="stop rv"><div class="t">—</div>
+      <h3>Hongik Univ Stn → the Airbnb</h3>
+      <p class="desc">Exit 9, then an 8-minute downhill walk along Wausan-ro to your door. You're staying inside the neighborhood most visitors commute to.</p>
+      <div class="meta"><span>WALK 8 MIN · 600 M</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">6 min to the action</span></li>
+    <li class="stop hl rv"><div class="t">EVE</div>
+      <h3>First Walk: Hongdae Streets <span class="kr">홍대거리</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Street_hongdae_Seoul.jpg/960px-Street_hongdae_Seoul.jpg" alt="Hongdae street at night"></figure>
+      <p class="desc">Drop bags, walk 6 minutes north and you're in it — street food, neon, and Saturday-night busking crews (the dance circles peak 19:00–22:00 near Exit 9 and the playground). Eat something off a cart, find a GS25, buy water and breakfast.</p>
+      <div class="meta"><span>SHOPS TO 22:00</span><span>STREET FOOD TO LATE</span><span>FREE</span></div>
+      <p class="tip">Don't fight jet lag with a big night — tomorrow is deliberately a slow one.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ================= DAY 1 ================= -->
+<section class="day" id="d1">
+  <div class="day-head">
+    <div class="day-banner"><span class="day-no">DAY 1</span><span class="day-date">SUNDAY · JULY 5</span></div>
+    <h2>Home Turf<span class="kr">홍대 · 연남 · 망원</span></h2>
+    <div class="day-route">Yeonnam → Hongdae → Mangwon → Han River sunset · everything within 25 min of bed</div>
+    <p class="day-lede">Jet-lag day by design: no alarm, no subway until late afternoon. You'll learn your own neighborhood first — the one most visitors only commute through — then cross the city after dark for your first big night view: the Banpo Moonlight Rainbow Fountain.</p>
+    <div class="flags"><span class="flag go">MANGWON MKT OPEN SUN (MANY STALLS REST MON)</span><span class="flag rain">RAIN SWAP: MARKET IS COVERED</span></div>
+  </div>
+  <ol class="tl">
+    <li class="stop rv"><div class="t">10:15</div>
+      <h3>Gyeongui Line Forest Park <span class="kr">연트럴파크</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Gyeonguiseon_Forest_Trail_Park_and_Ttaeng-ttaeng_Street_in_Seoul_%28near_Hongdae%2C_1%29.jpg/960px-Gyeonguiseon_Forest_Trail_Park_and_Ttaeng-ttaeng_Street_in_Seoul_%28near_Hongdae%2C_1%29.jpg" alt="Gyeongui Line Forest Park"></figure>
+      <p class="desc">A linear park built over old rail tracks — locals call this stretch "Yeontral Park." Stroll it north into Yeonnam-dong as the cafes open.</p>
+      <div class="meta"><span>ALWAYS OPEN</span><span>FREE</span><span>WALK 15 MIN FROM FLAT</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">5 min into the alleys</span></li>
+    <li class="stop rv"><div class="t">11:00</div>
+      <h3>Brunch: Cafe Layered Yeonnam <span class="kr">카페 레이어드</span></h3>
+      <p class="desc">Scones and Victoria cake from the same team as London Bagel Museum, without the 2-hour line. The alleys west of the park (Donggyo-ro 27-gil) hold the quieter gems.</p>
+      <div class="meta"><span>~11:00–22:00</span><span>₩6–9K</span><span>STAY ~1 H</span></div>
+      <p class="tip">Determined to do <b>London Bagel Museum</b> instead? Its Yeonnam original opens 08:00 — arrive by 8:45 or join the CatchTable waitlist from 07:30. Otherwise skip it; verdict inside.</p>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">12 min back through Hongdae</span></li>
+    <li class="stop rv"><div class="t">13:00</div>
+      <h3>StyleNanda Hongdae + Chuu <span class="kr">스타일난다 · 츄</span></h3>
+      <p class="desc">Both flagships sit a block apart on Wausan-ro 29da-gil, 10 minutes from your flat. StyleNanda for 3CE testers without Myeongdong's tour buses; Chuu (renewed 2025) for the cult "-5kg jeans."</p>
+      <div class="meta"><span>~11:00–21:00 DAILY</span><span>TAX REFUND FROM ₩30K</span><span>STAY ~1 H</span></div>
+    </li>
+    <li class="stop rv"><div class="t">14:30</div>
+      <h3>Hongdae Walking Street + Record Crates</h3>
+      <p class="desc">Vintage shops, arcades, K-beauty outposts — with an A/C escape at <b>Anthracite Hapjeong</b>, a shoe factory turned roastery and the area's best coffee.</p>
+      <div class="meta"><span>SHOPS 11:00–22:00</span><span>ANTHRACITE TO 22:00</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">8 min toward Hongik Stn Exit 1</span></li>
+    <li class="stop hl rv"><div class="t">15:30</div>
+      <h3>T1 Base Camp <span class="kr">티원 베이스캠프</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Faker_2020_interview.jpg" alt="Faker, T1's legendary mid laner"></figure>
+      <p class="desc">Faker's team has its fan headquarters five minutes from your flat: the official T1 shop, trophy and jersey displays, a themed cafe, and a pro-spec 24-hour PC bang where you can queue up on the same gear the roster trains on. On T1 game days the screens turn the whole basement into a mini-stadium.</p>
+      <div class="meta"><span>B1, 147 YANGHWA-RO · HONGIK STN EXIT 1</span><span>SHOP 10:30–22:00 · PC BANG 24H</span><span>FREE ENTRY</span><span>STAY 45 MIN</span></div>
+      <p class="tip"><b>MSI is in Korea during your trip</b> (Daejeon, thru Jul 12) — if T1 is playing, come back at match time and watch with the faithful. It never closes; treat it as your any-night neighborhood stop.</p>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">12 min south to Sangsu</span><span class="mode l6">LINE 6</span><span class="lt">Sangsu → Mangwon, 1 stop</span></li>
+    <li class="stop rv"><div class="t">16:45</div>
+      <h3>Manguridang-gil <span class="kr">망리단길</span></h3>
+      <p class="desc">Low-key refurbished-house cafe street. In this heat the correct order is shaved ice at <b>Tokyo Bingsu</b>; Huwahuwa Bakery for fluffy bread if there's room.</p>
+      <div class="meta"><span>SHOPS ~11:00–22:00</span><span>STAY ~45 MIN</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">3 min, parallel street</span></li>
+    <li class="stop hl rv"><div class="t">17:30</div>
+      <h3>Mangwon Market <span class="kr">망원시장</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Mercado_Mangwon_en_Se%C3%BAl.jpg/960px-Mercado_Mangwon_en_Se%C3%BAl.jpg" alt="Mangwon Market arcade"></figure>
+      <p class="desc">Covered local market, zero tourist polish. Assemble your picnic: a cup of <b>Mangwon Dakgangjeong</b> (sweet-spicy glazed fried chicken, ₩4–6k), croquettes, hotteok.</p>
+      <div class="meta"><span>~10:00–21:00</span><span>GRAZE BUDGET ₩10–15K</span><span>CASH EASIEST</span></div>
+      <p class="tip">Buy the picnic <b>here</b>, not at the park stores — half the price, twice as good.</p>
+    </li>
+    <li class="leg rv"><span class="mode l6">LINE 6</span><span class="lt">Mangwon → Express Bus Terminal · ~35 min · or ₩18k taxi across the river</span></li>
+    <li class="stop hl rv"><div class="t">19:15</div>
+      <h3>Goto Mall (Gotomall) <span class="kr">고투몰</span></h3>
+      <p class="desc">Seoul's longest underground shopping arcade — 600-plus stalls strung the length of the Express Bus Terminal concourse: fast fashion and ₩10,000 racks, flowers and homeware at the far end. Fiercely cheap, cash-friendly, and gloriously air-conditioned after a day on your feet.</p>
+      <div class="meta"><span>~10:00–22:00</span><span>CASH BEST · MANY STALLS CARD OK</span><span>STAY 1 H</span></div>
+      <p class="tip">It's a maze of two parallel lines (Gangnam / Sinsegae sides) — note your nearest exit number so you can resurface for the fountain.</p>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">10 min to the river via Express Bus Terminal Exit 8-1</span></li>
+    <li class="stop hl rv"><div class="t">20:30</div>
+      <h3>Banpo Hangang Park — Moonlight Rainbow Fountain <span class="kr">반포한강공원 · 달빛무지개분수</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/2011%EB%85%84_11%EC%9B%94_%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD_%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C_%EB%AA%85%EC%86%8C_%28Seoul_best_attractions%29_%EB%8B%AC%EB%B9%9B%EB%AC%B4%EC%A7%80%EA%B0%9C%EB%B6%84%EC%88%981.jpg/960px-2011%EB%85%84_11%EC%9B%94_%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD_%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C_%EB%AA%85%EC%86%8C_%28Seoul_best_attractions%29_%EB%8B%AC%EB%B9%9B%EB%AC%B4%EC%A7%80%EA%B0%9C%EB%B6%84%EC%88%981.jpg" alt="Banpo Moonlight Rainbow Fountain"></figure>
+      <p class="desc">A kilometre of water firing off Banpo Bridge in coloured light — free, nightly, and best from the lawn just east of the bridge with a convenience-store beer. Grab dinner from the park's ramyeon machines or the food trucks; July shows run 20:00 / 20:30 / 21:00 / 21:30, twenty minutes each. Catch two.</p>
+      <div class="meta"><span>SHOWS 19:30–21:30 · 20 MIN EACH</span><span>FREE</span><span>CANCELS IN RAIN / WIND</span></div>
+      <p class="tip">Jet-lag honest: if you're flagging, watch one show and go. <b>Home</b> — Line 9 express to Dangsan, then Line 2 two stops to Hongik (~35 min), or a ₩18k taxi. Rained out? Your own <b>Mangwon Hangang Park</b> sunset (10 min from the flat, best west-facing bank) is the easy make-good on any clear evening.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ================= DAY 2 ================= -->
+<section class="day" id="d2">
+  <div class="day-head">
+    <div class="day-banner"><span class="day-no">DAY 2</span><span class="day-date">MONDAY · JULY 6</span></div>
+    <h2>Mid-Season, Live<span class="kr">대전 · MSI</span></h2>
+    <div class="day-route">Hongik → Seoul Stn → KTX → Daejeon · Sungsimdang → DCC fan fest → bracket-day Bo5 → last train home</div>
+    <p class="day-lede">You flagged this in the briefing: <b>MSI 2026 is an hour south in Daejeon</b>, and Monday is the day to give it. The whole day blocks out — KTX down after breakfast, the fan festival and merch run at the Convention Center, then a bracket-stage best-of-five deep into the night, last fast train back. The royal-palace day that lived here is parked as a fallback in the note below.</p>
+    <div class="flags"><span class="flag book">BOOK KTX BOTH WAYS + MATCH TICKET AHEAD</span><span class="flag go">DCC INDOOR / A-C — JANGMA-PROOF</span><span class="flag book">LAST FAST TRAIN BACK ~23:00</span></div>
+  </div>
+  <ol class="tl">
+    <li class="leg rv"><span class="mode arex">AREX ALL-STOP</span><span class="lt">Hongik → Seoul Station, 2 stops · ~11 min · depart ~09:20</span></li>
+    <li class="stop rv"><div class="t">10:00</div>
+      <h3>KTX to Daejeon <span class="kr">KTX 대전행</span></h3>
+      <p class="desc">Board a morning KTX from Seoul Station — trains run every 15–20 min and take about an hour. <b>Reserve a seat the night before</b> on the Korail Talk app (₩~24,000). Monday mid-morning is calm, but MSI fans fill the popular departures.</p>
+      <div class="meta"><span>SEOUL → DAEJEON ~1 H</span><span>₩~24,000 EACH WAY</span><span>EVERY 15–20 MIN</span><span>RESERVE AHEAD</span></div>
+      <p class="tip">SRT from Suseo also reaches Daejeon, but Seoul Station KTX is the one that's a single AREX hop from Hongik — no transfer with your bags-free day pack.</p>
+    </li>
+    <li class="leg rv"><span class="mode arex">KTX</span><span class="lt">Seoul → Daejeon, reserved · ~60 min</span></li>
+    <li class="stop hl rv"><div class="t">11:30</div>
+      <h3>Sungsimdang, Eunhaeng-dong <span class="kr">성심당 본점</span></h3>
+      <p class="desc">Daejeon's most famous export and a pilgrimage in its own right — the original <b>Sungsimdang</b> bakery, five minutes on foot from Daejeon Station. Fuel up and stock the day's snacks: the chive-cream <b>twiso bread</b> and the fried-soboro bun are the ones people queue for. This is lunch.</p>
+      <div class="meta"><span>~08:00–22:00</span><span>HAUL ₩15–25K · CARD OK</span><span>5 MIN FROM STATION</span><span>EXPECT A LINE</span></div>
+      <p class="tip">It genuinely sells out of the headline breads by afternoon — buy on the way <b>in</b>, not on the way out.</p>
+    </li>
+    <li class="leg rv"><span class="mode taxi">TAXI</span><span class="lt">Daejeon Stn → Convention Center, ~15 min · or Metro L1 + walk</span></li>
+    <li class="stop hl rv"><div class="t">13:30</div>
+      <h3>MSI Fan Fest — Daejeon Convention Center <span class="kr">대전컨벤션센터</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/%EB%8C%80%EC%A0%84%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0.jpg/960px-%EB%8C%80%EC%A0%84%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0.jpg" alt="Daejeon Convention Center"></figure>
+      <p class="desc">Get to the venue plaza hours before first blood. The festival grounds run team walls and player cutouts, cosplay, the Riot merch tent, and an outdoor big screen for the crowd that didn't land seats. <b>Hit merch first</b> — event-exclusive jerseys and the year's MSI drop sell through fast.</p>
+      <div class="meta"><span>FAN ZONE FROM EARLY AFTERNOON</span><span>MERCH = CASH OR CARD</span><span>PASSPORT FOR WILL-CALL</span></div>
+    </li>
+    <li class="stop rv"><div class="t">16:30</div>
+      <h3>Doors &amp; Your Seat <span class="kr">입장</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/LOL_Park_Stadium.jpg/960px-LOL_Park_Stadium.jpg" alt="LCK-style esports arena interior"></figure>
+      <p class="desc">Doors open ahead of the broadcast — clear the bag check, find your section, grab a drink, and settle before the opening ceremony. Inside is fully air-conditioned, so the jangma outside is somebody else's problem.</p>
+      <div class="meta"><span>DOORS ~1 H PRE-SHOW</span><span>NO PRO CAMERAS / LARGE SIGNS</span><span>SEAT ASSIGNED ON TICKET</span></div>
+    </li>
+    <li class="stop hl rv"><div class="t">17:00</div>
+      <h3>Bracket Day — the Best-of-Five <span class="kr">미드시즌 인비테이셔널</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Faker_2020_interview.jpg" alt="Faker, T1's mid laner"></figure>
+      <p class="desc">The reason for the whole trip: a live MSI bracket series with the building roaring on every teamfight, casters up on the giant stage screens, crowd cams between games. <b>If T1 drew today</b>, the Faker chant is something you feel in your chest.</p>
+      <div class="meta"><span>1–2 SERIES · RUNS ~4–5 H</span><span>EXPECT TO FINISH 21:00–22:00</span><span>CROWD GOES LATE</span></div>
+      <p class="tip">Check the exact match card and start time on the bracket page the morning of — schedules shift, and a Bo5 can run long.</p>
+    </li>
+    <li class="stop rv"><div class="t">21:30</div>
+      <h3>After the Final Game</h3>
+      <p class="desc">Spill out with the crowd, grab a fast dinner near the venue or back by the station — Daejeon's Dunsan-dong is full of late galbi and pojangmacha — then make for the last train. Don't cut it fine.</p>
+      <div class="meta"><span>DINNER ₩12–20K</span><span>KAKAO T FOR THE TAXI</span></div>
+    </li>
+    <li class="leg rv"><span class="mode taxi">TAXI</span><span class="lt">venue → Daejeon Station, ~15 min</span><span class="mode arex">KTX</span><span class="lt">last fast train ~23:00, into Seoul ~00:05</span></li>
+    <li class="stop hl rv"><div class="t">~00:15</div>
+      <h3>Seoul Station → Home</h3>
+      <p class="desc">By the time you're back, the AREX and subway have usually stopped — walk to the taxi rank and Kakao T it to Hongdae (~15 min, ₩10–15k). Asleep in your own bed before 1am.</p>
+      <div class="meta"><span>TAXI ₩10–15K · ~15 MIN</span><span>CONFIRM THE LAST KTX WHEN YOU BOOK</span></div>
+    </li>
+  </ol>
+  <div class="day-note"><b>No ticket, or T1 isn't drawn for a Monday slot?</b> Don't spend the day on trains. This whole slot then becomes a <b>Gyeongbokgung Monday</b> — it's the one major palace open Mondays (when Changdeokgung and the others are shut): the throne hall, Seochon and Daeo Bookstore, samgyetang at Tosokchon, and Gwanghwamun + Cheonggyecheon at dusk. You'd then lighten Wednesday's west-palace day to suit. Either way, Monday is covered.</div>
+</section>
+
+<!-- ================= DAY 3 ================= -->
+<section class="day" id="d3">
+  <div class="day-head">
+    <div class="day-banner"><span class="day-no">DAY 3</span><span class="day-date">TUESDAY · JULY 7</span></div>
+    <h2>Royal Seoul, East<span class="kr">창덕궁 · 창경궁 · 북촌</span></h2>
+    <div class="day-route">Changdeokgung → Secret Garden → Changgyeonggung → Bukchon → Insadong → Ikseon-dong → tent bars · the eastern palace cluster, hanok alleys after dark</div>
+    <p class="day-lede">First of <b>two history days</b>. Gyeongbokgung and Jongmyo both close Tuesdays — so today takes the eastern royal cluster, which doesn't: <b>Changdeokgung</b> and its Secret Garden, neighbouring <b>Changgyeonggung</b>, and the <b>Bukchon</b> hanok lanes that sit between them. The Secret Garden booking moved here from Wednesday; the whole day stays inside one square kilometre.</p>
+    <div class="flags"><span class="flag book">SECRET GARDEN 10:30 ENG TOUR — BOOK JUL 1</span><span class="flag closed">CLOSED TUE: GYEONGBOKGUNG · JONGMYO → TOMORROW</span><span class="flag go">BUKCHON QUIET HOURS — KEEP IT DOWN, NO ALLEY PHOTOS AFTER 17:00</span></div>
+  </div>
+  <ol class="tl">
+    <li class="leg rv"><span class="mode l2">LINE 2</span><span class="lt">Hongik → Euljiro 3-ga</span><span class="mode l3">LINE 3</span><span class="lt">→ Anguk Exit 3 · ~28 min · depart 08:40</span></li>
+    <li class="stop rv"><div class="t">09:15</div>
+      <h3>Changdeokgung Palace <span class="kr">창덕궁</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/%EC%B0%BD%EB%8D%95%EA%B6%81_%EC%A0%84%EA%B2%BD_%282012%29.jpg/960px-%EC%B0%BD%EB%8D%95%EA%B6%81_%EC%A0%84%EA%B2%BD_%282012%29.jpg" alt="Changdeokgung Palace"></figure>
+      <p class="desc">The UNESCO-listed palace most visitors call the better one — built into the hillside rather than against it, the palace that follows the land. Walk the main halls and Nakseonjae before your garden slot.</p>
+      <div class="meta"><span>09:00–18:30 · CLOSED MON</span><span>₩3,000 OR INTEGRATED TICKET</span><span>STAY 1.25 H</span></div>
+      <p class="tip">Early riser? <b>Imun Seolnongtang</b> (est. ~1904, Seoul's oldest restaurant, Bib Gourmand) opens 08:00 near Jonggak — a ₩12,000 ox-bone-soup breakfast on the way in.</p>
+    </li>
+    <li class="stop hl rv"><div class="t">10:30</div>
+      <h3>Secret Garden Tour <span class="stag amb">BOOKED</span> <span class="kr">후원</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Korea-Seoul-Changdeokgung-31.jpg" alt="Buyongjeong pavilion, Secret Garden"></figure>
+      <p class="desc">90 guided minutes through the kings' private rear garden — lotus ponds, pavilions, old-growth forest, lush and dripping in July. Mostly shaded, one steep stretch; the morning slot exists for exactly this weather.</p>
+      <div class="meta"><span>ENG TOURS 10:30 / 11:30 / 14:30 / 15:30</span><span>+₩8,000</span><span>90 MIN</span></div>
+      <p class="tip">Booking moved to <b>Tue Jul 7</b> — slots open 6 days ahead, so set an alarm for <b>10:00 KST on Jul 1</b>. Missed it? 50 same-day tickets sell at the office from opening; be there 08:50.</p>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">5 min through the connecting gate — one ticket covers both</span></li>
+    <li class="stop rv"><div class="t">12:15</div>
+      <h3>Changgyeonggung Palace <span class="kr">창경궁</span></h3>
+      <p class="desc">Changdeokgung's quieter sister, joined to it by a garden gate and built for the dowager queens. Its <b>Daeonsil</b> — a 1909 glass-and-iron greenhouse — was Korea's first botanical conservatory, and the pond behind it is the calmest water downtown.</p>
+      <div class="meta"><span>09:00–18:00 · CLOSED MON</span><span>₩1,000 OR INTEGRATED</span><span>STAY 45 MIN</span></div>
+      <p class="tip">The <b>integrated palace ticket</b> (₩10,000) covers all four palaces, Jongmyo and the Secret Garden — worth it across these two days.</p>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">12 min west to Nakwon-dong</span></li>
+    <li class="stop hl rv"><div class="t">13:15</div>
+      <h3>Lunch: Eulji Myeonok <span class="kr">을지면옥</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/5/58/Naengmyeon_%28cold_noodles%29.jpg" alt="Pyongyang-style naengmyeon"></figure>
+      <p class="desc">Legendary Pyongyang-style naengmyeon — icy buckwheat noodles in chilled broth, the definitive July dish. Evicted by redevelopment in 2022, reopened 2024 in Nakwon-dong with the original signboard. Subtle on first taste, addictive by the bottom of the bowl.</p>
+      <div class="meta"><span>₩14–16K</span><span>RUSH 12:00–13:00 — YOU'RE ARRIVING JUST AFTER</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">12 min north into the hanok hill</span></li>
+    <li class="stop hl rv"><div class="t">14:45</div>
+      <h3>Bukchon Hanok Village + Samcheong-dong <span class="kr">북촌한옥마을 · 삼청동</span></h3>
+      <p class="desc">Six hundred years of tiled roofs stacked up the hill between the two palaces — the postcard <b>Gahoe-dong 31</b> viewpoint looks straight down a lane of hanok to the towers beyond. Drift north into <b>Samcheong-dong</b> for gallery-lined streets and a cold drink once the climb is done.</p>
+      <div class="meta"><span>LANES ALWAYS OPEN</span><span>FREE</span><span>STAY 1.5 H</span></div>
+      <p class="tip"><b>It's a living neighbourhood</b> — residents enforce 10:00–17:00 visiting and quiet hours, with monitors shushing crowds. Keep your voice down and shoot the alleys before 17:00.</p>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">12 min south to the main street</span></li>
+    <li class="stop rv"><div class="t">16:30</div>
+      <h3>Insadong + Ssamzigil <span class="kr">인사동 · 쌈지길</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Insa-dong_%EC%9D%B8%EC%82%AC%EB%8F%99_October_1_2020_20.jpg/960px-Insa-dong_%EC%9D%B8%EC%82%AC%EB%8F%99_October_1_2020_20.jpg" alt="Insadong main street"></figure>
+      <p class="desc">The antique-and-calligraphy street, with Ssamzigil's spiral ramp of indie craft studios at its heart. The free Sky Garden at the top of the ramp overlooks the whole street.</p>
+      <div class="meta"><span>SSAMZIGIL 10:30–20:30</span><span>STAY 1 H</span></div>
+      <p class="tip">The better galleries hide in the alleys <b>west</b> of the main street. <b>Kyung-in Museum of Fine Art</b> (free, hanok courtyard) is a worthy 30-minute detour.</p>
+    </li>
+    <li class="stop hl rv"><div class="t">17:30</div>
+      <h3>Shin Old Tea House <span class="kr">신옛찻집</span></h3>
+      <p class="desc">Floor-seated hanok tea house down an unmarked alley, small birds flying free inside. Iced omija-cha and red-bean patbingsu at the exact hour the city outside is at its worst.</p>
+      <div class="meta"><span>~11:30–20:00</span><span>TEA ₩7–9K · BINGSU ~₩12K</span><span>STAY 1 H</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">10 min east to Ikseon-dong</span></li>
+    <li class="stop hl rv"><div class="t">18:30</div>
+      <h3>Ikseon-dong Hanok Village <span class="kr">익선동</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/View_of_Ikseon-dong_from_National_Tax_Service_Jongno_District_Office.jpg/960px-View_of_Ikseon-dong_from_National_Tax_Service_Jongno_District_Office.jpg" alt="Ikseon-dong hanok rooftops"></figure>
+      <p class="desc">1920s hanok packed into alleys barely a shoulder wide, now Seoul's prettiest cafe-and-dinner maze (Cheong Su Dang is the signature). Crowds thin after 18:00 as the day-trippers leave — eat dinner here.</p>
+      <div class="meta"><span>ALLEYS ALWAYS OPEN · KITCHENS ~11:00–22:00</span><span>DINNER ₩15–25K</span><span>STAY 1.5 H</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">2 min — it's literally across the street</span></li>
+    <li class="stop hl rv"><div class="t">20:15</div>
+      <h3>Jongno 3-ga Pojangmacha Street <span class="kr">포장마차거리</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Korea-Pojangmacha-01.jpg" alt="Pojangmacha tent bar"></figure>
+      <p class="desc">Orange tent bars unfurl in front of Ikseon-dong from 18:00 — soju, rolled egg omelet, grilled skewers, office workers loosening ties. The most Seoul way to end a palace day.</p>
+      <div class="meta"><span>~18:00–02:00</span><span>₩15–25K/PERSON · CASH FRIENDLY</span><span>EXITS 5–6</span></div>
+    </li>
+    <li class="leg rv"><span class="mode l3">LINE 3</span><span class="lt">Jongno 3-ga → Euljiro 3-ga</span><span class="mode l2">LINE 2</span><span class="lt">→ Hongik · ~25 min</span></li>
+  </ol>
+</section>
+
+<!-- ================= DAY 4 ================= -->
+<section class="day" id="d4">
+  <div class="day-head">
+    <div class="day-banner"><span class="day-no">DAY 4</span><span class="day-date">WEDNESDAY · JULY 8</span></div>
+    <h2>Royal Seoul, West<span class="kr">경복궁 · 종묘 · 덕수궁</span></h2>
+    <div class="day-route">Gyeongbokgung → guard ceremony → palace museums → Gwanghwamun → Deoksugung → Jongmyo → Jogyesa → Shinsegae · the grand axis of the old capital</div>
+    <p class="day-lede">The second history day, and the big one. <b>Gyeongbokgung</b> — the throne of the Joseon dynasty — plus the <b>Jongmyo</b> royal ancestral shrine and <b>Deoksugung</b> all close Tuesdays, which is exactly why they waited for today. Front-load the palace before the heat; wear something light, this is the most open-sky day of the week.</p>
+    <div class="flags"><span class="flag go">ALL OPEN WED · GUARD CHANGE 10:00 &amp; 14:00</span><span class="flag go">FREE PALACE ENTRY IN HANBOK — RENT NEAR EXIT 4</span><span class="flag rain">RAIN SWAP: PALACE + FOLK MUSEUMS ARE INDOORS &amp; FREE</span></div>
+  </div>
+  <ol class="tl">
+    <li class="leg rv"><span class="mode l2">LINE 2</span><span class="lt">Hongik → Euljiro 3-ga</span><span class="mode l3">LINE 3</span><span class="lt">→ Gyeongbokgung Exit 5 · ~30 min · depart 08:40</span></li>
+    <li class="stop hl rv"><div class="t">09:20</div>
+      <h3>Gyeongbokgung Palace <span class="kr">경복궁</span></h3>
+      <p class="desc">The first and grandest of the five palaces, seat of the Joseon kings since 1395. Make straight for the <b>Geunjeongjeon</b> throne hall and the <b>Gyeonghoeru</b> pavilion floating on its lotus pond, then circle back for the <b>10:00 royal guard-changing ceremony</b> at Gwanghwamun gate — halberds, drums and silk, fifteen minutes, free.</p>
+      <div class="meta"><span>09:00–18:00 · CLOSED TUE</span><span>₩3,000 · FREE IN HANBOK</span><span>STAY 1.5 H</span></div>
+      <p class="tip">The crowd clots at the front gate for the ceremony — see the throne hall <b>first</b>, walk out to the gate at 09:55, then carry on to the quiet back of the grounds while everyone files in.</p>
+    </li>
+    <li class="stop rv"><div class="t">11:00</div>
+      <h3>National Palace &amp; Folk Museums <span class="kr">국립고궁·민속박물관</span></h3>
+      <p class="desc">Two free museums on the palace grounds, both blessedly cold: the <b>Palace Museum</b> for royal seals, robes and astronomical clocks, the <b>Folk Museum</b> for everyday Joseon life and an open-air street of recreated old shops. Your A/C hour before lunch.</p>
+      <div class="meta"><span>09:00–18:00 · FREE</span><span>STAY 1 H</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">10 min west into Seochon</span></li>
+    <li class="stop hl rv"><div class="t">12:15</div>
+      <h3>Lunch: Tosokchon Samgyetang <span class="kr">토속촌 삼계탕</span></h3>
+      <p class="desc">The city's most famous ginseng-chicken soup, in a warren of hanok rooms a few minutes west of the palace — a whole young chicken stuffed with rice, ginseng and jujube in milky broth. Counter-intuitive in the heat, exactly right after a morning on your feet.</p>
+      <div class="meta"><span>10:00–22:00</span><span>₩20K</span><span>QUEUE BY 12:00 — IT MOVES FAST</span></div>
+      <p class="tip">Line out the door? <b>Seochon</b> — the old "west village" around you — hides quieter kalguksu and the tiny <b>Daeo Bookstore</b> (1951, Seoul's oldest), worth ten minutes either way.</p>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">12 min south down the palace wall</span></li>
+    <li class="stop rv"><div class="t">14:00</div>
+      <h3>Gwanghwamun Square <span class="kr">광화문광장</span></h3>
+      <p class="desc">The ceremonial spine of the city: King Sejong enthroned in bronze, Admiral Yi Sun-sin on guard, fountains kids run through, and the underground <b>"Story of King Sejong &amp; Yi Sun-sin"</b> exhibition hall right below — free, cool, and genuinely good on the hangeul alphabet and the turtle ships.</p>
+      <div class="meta"><span>SQUARE 24H · HALL 10:30–18:30 · FREE</span><span>STAY 40 MIN</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">10 min south to City Hall</span></li>
+    <li class="stop hl rv"><div class="t">14:45</div>
+      <h3>Deoksugung + Stonewall Walk <span class="kr">덕수궁 · 돌담길</span></h3>
+      <p class="desc">The smallest palace and the strangest — where Joseon's last emperor set hanok halls beside Western stone, including the colonnaded <b>Seokjojeon</b>. Time it for the <b>15:30 royal guard change</b> at Daehanmun gate, then walk the famous tree-lined <b>doltam-gil</b> stone-wall road around the back.</p>
+      <div class="meta"><span>09:00–21:00 · CLOSED MON</span><span>₩1,000</span><span>GUARD 11:00 / 14:00 / 15:30 · STAY 1 H</span></div>
+    </li>
+    <li class="leg rv"><span class="mode l1">LINE 1</span><span class="lt">City Hall → Jongno 3-ga, 2 stops · or a 15 min walk along Cheonggyecheon</span></li>
+    <li class="stop hl rv"><div class="t">16:00</div>
+      <h3>Jongmyo Shrine <span class="kr">종묘</span></h3>
+      <p class="desc">The most solemn place in Seoul — the UNESCO royal ancestral shrine, one 101-metre wooden hall holding the spirit tablets of the Joseon kings, set in dark forest. Weekdays are <b>timed guided entry only</b>; aim for the <b>16:00 English tour</b> (1 hour, ₩1,000). Closed Tuesdays, which is why it's today and not yesterday.</p>
+      <div class="meta"><span>09:00–18:00 · CLOSED TUE</span><span>ENG TOUR 16:00 · ₩1,000</span><span>STAY 1 H</span></div>
+      <p class="tip">Saturdays and the last Wednesday of the month allow free self-paced entry; on a normal Wednesday you must join the tour, so don't roll up at 16:55.</p>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">10 min west to Jonggak</span></li>
+    <li class="stop rv"><div class="t">17:00</div>
+      <h3>Jogyesa Temple <span class="kr">조계사</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Jogyesa_Temple_%281509839597%29.jpg/960px-Jogyesa_Temple_%281509839597%29.jpg" alt="Jogyesa Temple"></figure>
+      <p class="desc">Chief temple of Korean Buddhism — lantern canopy, potted lotus in front of the main hall, a 500-year-old white pine at the gate. Sit at the back of the hall as long as you like, then step out as the lanterns come on.</p>
+      <div class="meta"><span>GROUNDS 24H · FREE</span><span>STAY 30 MIN</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">drop into the Cheonggyecheon stream and follow it ~15 min west to Hoehyeon — cooler than the road above</span></li>
+    <li class="stop hl rv"><div class="t">18:00</div>
+      <h3>Shinsegae Main Store + Rooftop <span class="kr">신세계백화점 본점</span></h3>
+      <p class="desc">Korea's first department store, in the restored 1930 Mitsukoshi landmark by Namdaemun — the antidote to a day on temple floors. Ride up to the <b>rooftop garden</b> and the Trinity sculpture for the city at dusk, then graze the basement food hall for dinner. After dark the historic facade runs its seasonal media show.</p>
+      <div class="meta"><span>10:30–20:00 · FOOD HALL TO 20:00</span><span>ROOFTOP FREE</span><span>HOEHYEON STN EXIT 7</span></div>
+      <p class="tip"><b>Heavy rain earlier?</b> Cheonggyecheon floods and closes — skip the stream, ride Line 1 one stop, and go straight to the food hall.</p>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">8 min to City Hall</span><span class="mode l2">LINE 2</span><span class="lt">→ Hongik direct · ~22 min</span></li>
+  </ol>
+  <div class="day-note rv"><b>Pacing valve:</b> three palaces, a shrine, two museums and a department store is a lot of ground. If the morning runs long, drop the Folk Museum and trim Gwanghwamun — but do <b>not</b> skip the 16:00 Jongmyo tour, there's no later English one.</div>
+</section>
+
+<!-- ================= DAY 5 ================= -->
+<section class="day" id="d5">
+  <div class="day-head">
+    <div class="day-banner"><span class="day-no">DAY 5</span><span class="day-date">THURSDAY · JULY 9</span></div>
+    <h2>Yongsan &amp; the Museums<span class="kr">리움 · 전쟁기념관 · 국립중앙박물관</span></h2>
+    <div class="day-route">Leeum → Hannam → War Memorial → National Museum → Yongsan Park → Gwangjang Market dinner · the Yongsan ridge by day, the great market by night</div>
+    <p class="day-lede">The art-and-history ridge. <b>Leeum</b> in the cool morning, then the <b>War Memorial</b> and the <b>National Museum of Korea</b> through the heat — both free, both vast, both gloriously cold — the green of <b>Yongsan Park</b> at dusk, and finally back north for the trip's biggest market dinner at <b>Gwangjang</b>.</p>
+    <div class="flags"><span class="flag book">LEEUM 10:00 — RESERVE FREE AT LEEUM.ORG</span><span class="flag go">ALL OPEN THU · MUSEUMS FREE</span><span class="flag rain">RAIN-PROOF: TWO BIG MUSEUMS SOAK UP A WET DAY</span></div>
+  </div>
+  <ol class="tl">
+    <li class="leg rv"><span class="mode l6">LINE 6</span><span class="lt">Sangsu → Hangangjin · ~22 min · depart 09:25</span></li>
+    <li class="stop hl rv"><div class="t">10:00</div>
+      <h3>Leeum Museum of Art <span class="kr">리움미술관</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Leeum%2C_Samsung_Museum_of_Art.jpg/960px-Leeum%2C_Samsung_Museum_of_Art.jpg" alt="Leeum Museum of Art"></figure>
+      <p class="desc">Samsung's collection in three starchitect buildings: Goryeo celadon and Joseon masterworks upstairs, blue-chip contemporary in M2. The permanent collection is free with your reservation.</p>
+      <div class="meta"><span>10:00–18:00 · CLOSED MON</span><span>PERMANENT FREE · SPECIALS ₩12–20K</span><span>STAY 2 H</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">10 min downhill into Hannam-dong</span></li>
+    <li class="stop rv"><div class="t">12:15</div>
+      <h3>Lunch in Hannam-dong <span class="kr">한남동</span></h3>
+      <p class="desc">The Sounds Hannam complex and the surrounding hills — minimalist showrooms, luxury roasters, and the Comme des Garçons street. Seoul's most polished neighbourhood lunch before the museums.</p>
+      <div class="meta"><span>CAFES ~11:00–22:00</span><span>STAY 1.25 H</span></div>
+    </li>
+    <li class="leg rv"><span class="mode l6">LINE 6</span><span class="lt">Hangangjin → Samgakji, 2 stops · ~6 min</span></li>
+    <li class="stop hl rv"><div class="t">13:45</div>
+      <h3>The War Memorial of Korea <span class="kr">전쟁기념관</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/The_War_Memorial_Of_Korea_240615_02.jpg/960px-The_War_Memorial_Of_Korea_240615_02.jpg" alt="The War Memorial of Korea"></figure>
+      <p class="desc">Korea's military history at full scale on the old army HQ grounds — the Korean War halls, the Statue of Brothers, and an outdoor yard of B-52s, tanks and patrol boats. Ninety minutes covers the war floors; give the aircraft yard five sweaty minutes on the way out.</p>
+      <div class="meta"><span>09:30–18:00 · CLOSED MON</span><span>FREE</span><span>STAY 1.5 H · SAMGAKJI EXIT 12</span></div>
+    </li>
+    <li class="leg rv"><span class="mode l4">LINE 4</span><span class="lt">Samgakji → Ichon, 1 stop · underground walkway straight into the museum, zero sun</span></li>
+    <li class="stop hl rv"><div class="t">15:30</div>
+      <h3>National Museum of Korea <span class="kr">국립중앙박물관</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/National_Museum_of_Korea%2C_Seoul_%282%29_%2840236586235%29.jpg/960px-National_Museum_of_Korea%2C_Seoul_%282%29_%2840236586235%29.jpg" alt="National Museum of Korea"></figure>
+      <p class="desc">The flagship of Korean history, free, vast, and gloriously cold. Go <b>directly to the Room of Quiet Contemplation</b> — two gilt-bronze Pensive Bodhisattvas alone in a dark hall, the single best room in the country — then the ten-story Goryeo pagoda in the atrium and whatever else pulls you.</p>
+      <div class="meta"><span>THU TO 18:00 · FREE</span><span>STAY 1.5 H</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">5 min out the back to the park</span></li>
+    <li class="stop rv"><div class="t">17:15</div>
+      <h3>Yongsan Park — Evening Green <span class="kr">용산공원</span></h3>
+      <p class="desc">The museum's own <b>Yongsan Family Park</b> and its mirror pond roll right out the back door — and the long-closed US-garrison grounds next door are reopening as the new <b>Yongsan Park</b>, Seoul's biggest. A flat, shaded loop to walk the museum off before the run north for dinner.</p>
+      <div class="meta"><span>OPEN DAILY · FREE</span><span>STAY 45 MIN</span></div>
+    </li>
+    <li class="leg rv"><span class="mode l4">LINE 4</span><span class="lt">Ichon → Chungmuro</span><span class="mode l3">LINE 3</span><span class="lt">→ Jongno 3-ga + 5 min walk · ~25 min</span></li>
+    <li class="stop hl rv"><div class="t">18:45</div>
+      <h3>Gwangjang Market — The Big Dinner <span class="kr">광장시장</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Gwangjang_Market%2C_Seoul_01.jpg/960px-Gwangjang_Market%2C_Seoul_01.jpg" alt="Gwangjang Market food alley"></figure>
+      <p class="desc">The neon-lit food alley at full evening roar. The order: a stone-ground mung-bean <b>bindaetteok at Sunhui-ne</b> (₩5,000, near the east gate), <b>mayak gimbap</b>, a detour down Yukhoe Alley for raw beef if you're brave, and a bottle of Jangsu makgeolli. Stand at the stall — that's the correct seat.</p>
+      <div class="meta"><span>FOOD ALLEY ~09:00–23:00</span><span>BUDGET ₩15–25K</span><span>SUNHUI-NE RESTS TUE — OPEN THU</span></div>
+      <p class="tip">Tables fill fast at dinner; if a stall's full, the next one over serves the same thing. Cash moves you to the front.</p>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">5 min to Euljiro 4-ga</span><span class="mode l2">LINE 2</span><span class="lt">→ Hongik direct · ~25 min</span></li>
+  </ol>
+  <div class="day-note rv"><b>Pacing valve:</b> Leeum, the War Memorial and the National Museum back-to-back is a museum marathon. If your legs give out, the National Museum's one essential is the <b>Room of Quiet Contemplation</b> — 30 minutes door to door — and Yongsan Park is the first thing to cut. Don't skip Gwangjang; that's dinner.</div>
+</section>
+
+<!-- ================= DAY 6 ================= -->
+<section class="day" id="d6">
+  <div class="day-head">
+    <div class="day-banner"><span class="day-no">DAY 6</span><span class="day-date">FRIDAY · JULY 10</span></div>
+    <h2>South of the River<span class="kr">성수 · 코엑스 · 잠실</span></h2>
+    <div class="day-route">Seoul Forest → Seongsu → Starfield → Bongeunsa → Seoul Sky → Seokchon Lake · one straight run east along Line 2</div>
+    <p class="day-lede">The big day, but a kind one: nearly everything is air-conditioned, and every leg is a few stops on the same line. Seongsu is Seoul's current creative center of gravity; the night ends 500 meters above the city on a Friday-late observatory.</p>
+    <div class="flags"><span class="flag go">SEOUL SKY OPEN TO 23:00 FRI</span><span class="flag book">BUY SEOUL SKY ON KLOOK — ₩31K AT GATE</span><span class="flag rain">FULLY RAIN-PROOF EXCEPT THE DEER</span></div>
+  </div>
+  <ol class="tl">
+    <li class="leg rv"><span class="mode l2">LINE 2</span><span class="lt">Hongik → Ttukseom · ~30 min · depart 08:40</span></li>
+    <li class="stop rv"><div class="t">09:15</div>
+      <h3>Seoul Forest <span class="kr">서울숲</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/f/f5/SeoulForest.jpg" alt="Seoul Forest"></figure>
+      <p class="desc">In via Gate 2 (the horse statues) straight to the deer corral while the air is still soft and the deer still hungry — feed machines sell out by afternoon.</p>
+      <div class="meta"><span>PARK 24H · DEER 05:30–21:30</span><span>FREE · FEED ₩1–2K</span><span>STAY 1 H</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">5 min to Seoul Forest Stn D-Tower</span></li>
+    <li class="stop rv"><div class="t">10:30</div>
+      <h3>Kwangya @ Seoul <span class="kr">광야</span></h3>
+      <p class="desc">SM Entertainment's flagship in the basement of its HQ — transparent OLED walls, AR photo zones, displays that rotate with whoever's having a comeback. Free, and genuinely futuristic even if you can't name an aespa member.</p>
+      <div class="meta"><span>10:30–20:00</span><span>FREE ENTRY</span><span>STAY 45 MIN</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">15 min into Seongsu proper</span></li>
+    <li class="stop hl rv"><div class="t">11:30</div>
+      <h3>HAUS NOWHERE Seoul <span class="kr">하우스 노웨어</span></h3>
+      <p class="desc">Gentle Monster's 14-story brutalist spaceship, opened late 2025 — half art museum, half retail fever dream. <b>First move on entry: book the 5F Nudake Tea House at the 1F kiosk</b>, then browse the kinetic installations while the 30–60 min wait burns down.</p>
+      <div class="meta"><span>11:00–21:00 · TEA HOUSE TO 22:00</span><span>FREE ENTRY · DESSERTS ₩8–20K</span><span>STAY 1.5 H</span></div>
+    </li>
+    <li class="stop rv"><div class="t">13:15</div>
+      <h3>Lunch: Daelim Changgo <span class="kr">대림창고</span></h3>
+      <p class="desc">The 1970s rice-warehouse that started Seongsu's whole conversion — raw trusses, rotating art, proper pizza. The gallery half is free to wander even without a table.</p>
+      <div class="meta"><span>11:00–22:00</span><span>MAINS ₩20K+</span><span>STAY 1.25 H</span></div>
+    </li>
+    <li class="stop rv"><div class="t">14:45</div>
+      <h3>Yeonmujang-gil Crawl <span class="kr">연무장길</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Evening_street_in_Seongsu-dong.jpg/960px-Evening_street_in_Seongsu-dong.jpg" alt="Seongsu-dong street"></figure>
+      <p class="desc">The pop-up street: Tamburins flagship, the Dior Seongsu glasshouse (extended pop-up — peek even if you don't queue), Ader Error's "FUTOURIST" space, and <b>Olive Young N</b> — five floors, Korea's largest, with bookable free skin diagnostics. <b>LCDC Seoul's</b> 3F corridor of one-room brand ateliers closes the loop.</p>
+      <div class="meta"><span>MOST 11:00–20:00</span><span>STAY 2 H</span><span>POP-UP CALENDAR: POPS APP / SEONGSUDONG GORILLA</span></div>
+    </li>
+    <li class="leg rv"><span class="mode l2">LINE 2</span><span class="lt">Seongsu → Samseong · ~17 min</span></li>
+    <li class="stop rv"><div class="t">17:30</div>
+      <h3>Starfield Library <span class="kr">별마당도서관</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Starfield_Library_COEX_20240218.jpg/960px-Starfield_Library_COEX_20240218.jpg" alt="Starfield Library, COEX"></figure>
+      <p class="desc">The 13-meter bookshelf atrium inside COEX. The clean head-on shot is from the 2F balcony by the magazine racks. Browse the mall as long as it holds you.</p>
+      <div class="meta"><span>10:30–22:00</span><span>FREE</span><span>STAY 45 MIN</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">5 min across the boulevard</span></li>
+    <li class="stop rv"><div class="t">18:30</div>
+      <h3>Bongeunsa Temple at Dusk <span class="kr">봉은사</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ac/Bongeunsa_Seoul_5.jpg/960px-Bongeunsa_Seoul_5.jpg" alt="Bongeunsa Temple against Gangnam towers"></figure>
+      <p class="desc">A working temple since 794, its 23 m stone Buddha staring down the glass towers across the street. Lanterns against skyscrapers as the light drops — the sharpest old-new frame in the city.</p>
+      <div class="meta"><span>GROUNDS ~05:00–21:00</span><span>FREE</span><span>STAY 45 MIN</span></div>
+    </li>
+    <li class="leg rv"><span class="mode l2">LINE 2</span><span class="lt">Samseong → Jamsil, 3 stops · ~8 min</span></li>
+    <li class="stop hl rv"><div class="t">19:45</div>
+      <h3>Seoul Sky, Lotte World Tower <span class="kr">서울스카이</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/thumb/2/28/Lotte_World_Tower_day_view_10.jpg/960px-Lotte_World_Tower_day_view_10.jpg" alt="Lotte World Tower"></figure>
+      <p class="desc">Korea's highest observatory — floors 117–123 at ~500 m, glass-floor Sky Deck included. Arriving at last light buys you dusk and the full night grid on one ticket. This is the trip's one paid tower night — Namsan's free summit is parked in Spare Ammo if you want a second.</p>
+      <div class="meta"><span>FRI TO 23:00 · LAST ENTRY 22:00</span><span>₩31K GATE / ~₩20K KLOOK</span><span>STAY 1.25 H</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">straight down to the water</span></li>
+    <li class="stop rv"><div class="t">21:15</div>
+      <h3>Seokchon Lake Night Loop <span class="kr">석촌호수</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Lotte_World_day_view_10.jpg/960px-Lotte_World_day_view_10.jpg" alt="Seokchon Lake and Lotte World Tower"></figure>
+      <p class="desc">A 2.4 km lakeside path with the tower glowing overhead. Walk as much of it as your feet allow; <b>Songridan-gil's</b> dessert cafes line the east side if there's room for a donut.</p>
+      <div class="meta"><span>24H · FREE</span><span>L2 JAMSIL → HONGIK DIRECT, ~45 MIN</span></div>
+    </li>
+  </ol>
+  <div class="day-note rv"><b>Pacing valve:</b> this day has the most ground. Trim guilt-free in this order: Seokchon loop → Kwangya → Starfield. Don't trim the deer, HAUS NOWHERE, or the tower.</div>
+</section>
+
+<!-- ================= DAY 7 ================= -->
+<section class="day" id="d7">
+  <div class="day-head">
+    <div class="day-banner"><span class="day-no">DAY 7</span><span class="day-date">SATURDAY · JULY 11</span></div>
+    <h2>Seongwook's Wedding<span class="kr">결혼식</span></h2>
+    <div class="day-route">The whole day is his — ceremony, reception, and the people you came partly for</div>
+    <p class="day-lede"><b>Reserved.</b> Nothing is scheduled against today — Saturday belongs to <b>Seongwook's wedding</b>. Keep the morning loose for getting ready and travel, and leave the afternoon and evening entirely open for the ceremony and whatever follows. Everything that would have filled this day is parked in <b>Spare Ammo</b> in case a gap opens up.</p>
+    <div class="flags"><span class="flag book">FULL DAY HELD — NOTHING SCHEDULED OVER IT</span><span class="flag go">KOREAN WEDDINGS RUN ~1 HOUR + BUFFET — EXPECT AN EARLY-AFTERNOON START</span></div>
+  </div>
+  <ol class="tl">
+    <li class="stop hl rv"><div class="t">ALL DAY</div>
+      <h3>The Wedding <span class="kr">예식</span></h3>
+      <p class="desc">Held for the ceremony and reception. Korean weddings tend to be a brisk, joyful affair at a dedicated wedding hall — a 30–60 minute ceremony rolling straight into a buffet — often starting late morning or early afternoon. Build in travel time and a buffer on either side; this is the one fixed point of the trip.</p>
+      <div class="meta"><span>DRESS: SUIT / SMART</span><span>GIFT IS CASH (축의금) IN A WHITE ENVELOPE · ~₩50–100K IS CUSTOMARY</span></div>
+      <p class="tip">The cash gift goes in at the reception desk <b>before</b> you sit, and you'll get a meal ticket in return. ATMs near venues run dry on Saturdays — draw the envelope cash the day before.</p>
+    </li>
+    <li class="stop rv"><div class="t">NEARBY</div>
+      <h3>Nearby Pick — Tell Me the Venue <span class="stag opt">TO FILL IN</span></h3>
+      <p class="desc">You wanted one low-key option near the wedding for the surrounding hours — a coffee beforehand, or somewhere easy to land after. <b>Send me the venue or district and I'll drop a walkable pre/post spot in here</b>, plus the route back to Hongdae.</p>
+      <div class="meta"><span>AWAITING VENUE / AREA</span></div>
+    </li>
+  </ol>
+  <div class="day-note rv"><b>If the day frees up early:</b> the parked <b>east-side markets &amp; wall</b> day and the Namsan sunset in Spare Ammo both slot cleanly into a Saturday afternoon or evening. Don't force it; today is a day to be present.</div>
+</section>
+
+<!-- ================= DAY 8 ================= -->
+<section class="day" id="d8">
+  <div class="day-head">
+    <div class="day-banner"><span class="day-no">DAY 8</span><span class="day-date">SUNDAY · JULY 12</span></div>
+    <h2>West Side Finale<span class="kr">서대문 · 이대 · 여의도 · 선유도</span></h2>
+    <div class="day-route">Seodaemun Prison → Sinchon → Ewha → The Hyundai → Seonyudo sunset → standing galbi · history in the morning, the river at golden hour, charcoal smoke to finish</div>
+    <p class="day-lede">Last full day, kept deliberately close to home. Sunday is the only day Sinchon's main drag goes car-free — and the prison museum, closed Mondays, is open. The finale is a sunset on an island and dinner standing at a steel drum.</p>
+    <div class="flags"><span class="flag go">SEODAEMUN PRISON OPEN SUN · YONSEI-RO CAR-FREE SUN</span><span class="flag book">MSI FINAL IN DAEJEON TODAY — SEE SPARE AMMO</span></div>
+  </div>
+  <ol class="tl">
+    <li class="leg rv"><span class="mode bus">BUS 7611</span><span class="lt">from Hongdae → Dongnimmun · ~25 min · depart 09:00</span></li>
+    <li class="stop hl rv"><div class="t">09:30</div>
+      <h3>Seodaemun Prison History Hall <span class="kr">서대문형무소역사관</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Overview_of_the_Old_Seodaemun_Prison_%28%EA%B5%AC%EC%84%9C%EB%8C%80%EB%AC%B8%ED%98%95%EB%AC%B4%EC%86%8C%29.jpg/960px-Overview_of_the_Old_Seodaemun_Prison_%28%EA%B5%AC%EC%84%9C%EB%8C%80%EB%AC%B8%ED%98%95%EB%AC%B4%EC%86%8C%29.jpg" alt="Seodaemun Prison History Hall"></figure>
+      <p class="desc">The preserved 1908 colonial prison where independence fighters were held — cell blocks, the underground interrogation rooms, the execution building. Go early, go quiet. It's the heaviest 90 minutes of the trip and worth every one.</p>
+      <div class="meta"><span>09:30–18:00 · CLOSED MON</span><span>₩3,000</span><span>STAY 1.5 H</span></div>
+      <p class="tip">Legs and weather willing, the <b>Ansan Jarak-gil</b> boardwalk starts 10 min uphill behind the park — the shaded metasequoia stretch is 20 minutes there-and-back, no need for the full 7 km loop in July.</p>
+    </li>
+    <li class="leg rv"><span class="mode bus">BUS</span><span class="lt">7021 toward Sinchon, ~12 min</span></li>
+    <li class="stop rv"><div class="t">11:45</div>
+      <h3>Sinchon Yonsei-ro — Car-Free Sunday <span class="kr">신촌 연세로</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Seoul-Sinchon-01.jpg/960px-Seoul-Sinchon-01.jpg" alt="Sinchon Yonsei-ro"></figure>
+      <p class="desc">University-belt main street, pedestrianized on Sundays with street stages by the U-PLEX plaza. Lunch among students at a classic Korean pub-restaurant.</p>
+      <div class="meta"><span>SHOPS 11:00–22:00</span><span>STAY 1.25 H</span></div>
+    </li>
+    <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">10 min, or 1 stop on Line 2</span></li>
+    <li class="stop rv"><div class="t">13:15</div>
+      <h3>Ewha — ECC Canyon + Shopping Street <span class="kr">이화여대</span></h3>
+      <p class="desc">Dominique Perrault's glass valley sliced through the campus hillside — shoot it from the top of the steps looking down. Then the surrounding streets: the cheapest clothes, shoes and souvenir stock in west Seoul.</p>
+      <div class="meta"><span>CAMPUS OPEN · ECC VISITORS TO B4</span><span>FREE</span><span>STAY 1.25 H</span></div>
+    </li>
+    <li class="leg rv"><span class="mode taxi">TAXI</span><span class="lt">~15 min to Yeouido (subway needs 2 transfers — not worth it)</span></li>
+    <li class="stop rv"><div class="t">15:15</div>
+      <h3>The Hyundai Seoul <span class="kr">더현대 서울</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/The_Hyundai_Seoul_Yeoui-dong_3.jpg/960px-The_Hyundai_Seoul_Yeoui-dong_3.jpg" alt="The Hyundai Seoul"></figure>
+      <p class="desc">Seoul's most spectacular department store: a 12 m indoor waterfall, the 5F Sounds Forest garden under a skylight, and the B1 "Tasty Seoul" food hall with 90+ vendors. This is the last-gifts run — and the trip's ace rain card if any earlier day needed it.</p>
+      <div class="meta"><span>SUN 10:30–20:30</span><span>FREE ENTRY</span><span>STAY 2 H</span></div>
+    </li>
+    <li class="leg rv"><span class="mode l9">LINE 9</span><span class="lt">National Assembly → Seonyudo + 10 min walk · ~25 min total</span></li>
+    <li class="stop hl rv"><div class="t">18:30</div>
+      <h3>Seonyudo Park — Golden Hour <span class="kr">선유도공원</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Seoul_Seonyudo_Park.jpg/960px-Seoul_Seonyudo_Park.jpg" alt="Seonyudo Park"></figure>
+      <p class="desc">An abandoned water-treatment plant on a Han River island, swallowed whole by ivy — concrete columns, reflecting pools, river panoramas, almost no tourists. Fifteen minutes from your flat and the most cinematic sunset of the week. 19:55, one last time.</p>
+      <div class="meta"><span>06:00–24:00</span><span>FREE</span><span>STAY 1.5 H</span></div>
+    </li>
+    <li class="leg rv"><span class="mode taxi">TAXI</span><span class="lt">~12 min to Yeonnam · or bus over Yanghwa Bridge</span></li>
+    <li class="stop hl rv"><div class="t">20:45</div>
+      <h3>Farewell: Yeonnam Seo Seo Galbi <span class="kr">연남서서갈비</span></h3>
+      <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Korean.food-Galbi-03.jpg/960px-Korean.food-Galbi-03.jpg" alt="Charcoal-grilled galbi"></figure>
+      <p class="desc">Charcoal pork galbi eaten <b>standing at steel drums</b>, the way it's been done here since 1953. Cash, no side dishes, no chairs, no Instagram bait — the anti-trend restaurant locals defend fiercely, ten minutes from your door.</p>
+      <div class="meta"><span>EVENINGS TILL THE MEAT RUNS OUT — GO BY 21:00</span><span>~₩15K/SERVING · CASH</span></div>
+      <p class="tip">Sold out? <b>Pul Ddeutneun Dwaeji</b> in Yeonnam does minari samgyeopsal as the backup. Stroll home through Hongdae one last time. Pack tonight.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ================= DEPARTURE ================= -->
+<section class="day" id="dep">
+  <div class="day-head">
+    <div class="day-banner"><span class="day-no">DEPARTURE</span><span class="day-date">MONDAY · JULY 13</span></div>
+    <h2>Fly Home<span class="kr">출국</span></h2>
+    <div class="day-route">Hongik Univ Stn → ICN, one train</div>
+    <div class="flags"><span class="flag go">ARRIVE AIRPORT 3H BEFORE — MONDAY AM QUEUES PEAK 06:00–09:00</span></div>
+  </div>
+  <ol class="tl">
+    <li class="stop rv"><div class="t">—</div>
+      <h3>The Math, Backwards From Your Flight</h3>
+      <p class="desc">AREX all-stop from Hongik Univ: <b>~50 min to T1, ~58 min to T2</b>, every ~10 minutes, first trains toward the airport ~05:28. Be at the airport 3 hours early, add the walk to the station and a buffer: <b>leave the Airbnb 4¼ hours before departure</b>.</p>
+      <div class="meta"><span>₩4,500 W/ T-MONEY</span><span>CONFIRM "INCHEON AIRPORT T2" ON THE TRAIN BOARD</span></div>
+      <p class="tip"><b>Flight before 08:30?</b> The first train cuts it too close, especially for T2 — take a taxi instead (₩55–70k, ~50 min at dawn) or the N6002 airport bus.</p>
+    </li>
+    <li class="leg rv"><span class="mode arex">AREX ALL-STOP</span><span class="lt">Hongik → ICN T1/T2, direct</span></li>
+    <li class="stop rv"><div class="t">—</div>
+      <h3>At Incheon</h3>
+      <p class="desc"><b>Check your terminal first</b>: T2 is Korean Air/Delta/Air France-KLM and SkyTeam; T1 is everyone else. The train hits T1 first, T2 is the end of the line; transferring between them costs 15–20 minutes. Use the Smart Pass face-ID kiosks and self bag-drop if your airline supports them, claim your tax refund at the kiosks, and have one last hot soup airside.</p>
+      <div class="meta"><span>잘 가요 — TRAVEL WELL</span></div>
+    </li>
+  </ol>
+</section>
+
+<!-- ================= EXTRAS ================= -->
+<section class="extras" id="extras">
+  <div class="wrap" style="padding:0">
+    <div class="section-label">Spare Ammo — Swaps, Splurges &amp; Rain Cards</div>
+    <p style="max-width:640px;font-size:15px;color:var(--ink-soft);margin-bottom:20px">Verified and ready to slot in whenever a day runs short, a fountain gets rained out, or you fall in love with a neighborhood and want more of it.</p>
+    <div class="x-grid">
+      <div class="xcard rv">
+        <h4>The East-Side Markets &amp; Wall <span class="kr" style="font-size:12px;color:var(--ink-soft)">동묘 · 을지로 · DDP · 낙산</span></h4>
+        <div class="meta">LINE 6 / LINE 2 EAST · DONGMYO → DDP → NAKSAN · CAME OFF 7/9</div>
+        <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/Dongdaemun_Design_Plaza_at_night%2C_Seoul%2C_Korea.jpg/960px-Dongdaemun_Design_Plaza_at_night%2C_Seoul%2C_Korea.jpg" alt="Dongdaemun Design Plaza at night"></figure>
+        <p>The old "Markets &amp; the Wall" day, freed up when Yongsan took 7/9: the <b>Dongmyo flea market</b> (Seoul's thrift theatre, dig in the morning), <b>Sewoon Plaza</b> and the <b>Euljiro "Hipjiro"</b> cafe-and-machine-shop alleys, <b>Dongdaemun Design Plaza</b> (Zaha Hadid's spaceship, LED roses after dark), the <b>Seoul City Wall</b> night ascent over <b>Naksan</b>, <b>dak hanmari</b> for dinner, and the <b>Euljiro nogari</b> beer alley to finish. A full self-contained day or a pick-and-mix evening.</p>
+      </div>
+      <div class="xcard rv">
+        <h4>Namsan &amp; N Seoul Tower <span class="kr" style="font-size:12px;color:var(--ink-soft)">남산 · N서울타워</span></h4>
+        <div class="meta">PLAZA 24H · FREE · BUS 01A FROM CHUNGMURO EXIT 2 · BEST AT THE 19:55 SUNSET</div>
+        <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/a/a6/NamsanTower_%28Cropped%29.jpeg" alt="N Seoul Tower on Namsan"></figure>
+        <p>The mountain sunset that came off 7/7. Take bus 01A up (it skips the cable-car queue), be on the west terrace by Palgakjeong for the 19:55 sunset, and watch the grid light up. The free terraces give ~80% of the paid observatory view — only pay for N Seoul Tower's deck if the air is properly clear. Walk the lit path down to Myeongdong after. Slots onto any clear evening.</p>
+      </div>
+      <div class="xcard rv">
+        <h4>Myeongdong &amp; Namdaemun <span class="kr" style="font-size:12px;color:var(--ink-soft)">명동 · 남대문</span></h4>
+        <div class="meta">SHOPS 10:00–22:00 · NAMDAEMUN MKT TUE–SAT · SEOUL STN / LINE 4</div>
+        <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/%EB%AA%85%EB%8F%998%EA%B8%B8_%EA%B1%B0%EB%A6%AC_%282020.03%29.jpg/960px-%EB%AA%85%EB%8F%998%EA%B8%B8_%EA%B1%B0%EB%A6%AC_%282020.03%29.jpg" alt="Myeongdong shopping streets"></figure>
+        <p>The K-beauty-and-market block, freed up off 7/7. <b>Namdaemun Market</b> (Korea's biggest, trading since 1414) and its Kalguksu Alley for a cash lunch, <b>Sungnyemun Gate</b> and the <b>Seoullo 7017</b> garden walkway from Seoul Station, <b>Myeongdong Cathedral</b>, the Olive Young / 3CE Pink Space shopping grid, then the night-market food carts after dark. <b>NANTA</b>'s kitchen-percussion comedy plays a block off the main drag (₩50–70K, 20–40% off on Klook). An almost entirely indoor rainy-afternoon-into-evening.</p>
+      </div>
+      <div class="xcard rv">
+        <h4>LoL Park <span class="kr" style="font-size:12px;color:var(--ink-soft)">롤파크</span></h4>
+        <div class="meta">GRAN SEOUL 3F · JONGGAK STN EXIT 1 · FLOOR FREE · PC BANG 24H</div>
+        <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/LOL_Park_Stadium.jpg/960px-LOL_Park_Stadium.jpg" alt="LCK Arena inside LoL Park"></figure>
+        <p>Riot's purpose-built LCK arena fills the 3rd floor of the Gran Seoul tower — champion statues, team murals, the LoL-Park-exclusive Riot Store, Cafe Bilgewater, and a 24-hour Riot PC bang with the full roster unlocked. The LCK is dark while MSI runs in Daejeon (your Day 2), so the floor is quiet and yours. Ten minutes from the palace district — easy to bolt onto either history day or the Jongno evening.</p>
+      </div>
+      <div class="xcard rv">
+        <h4>Noryangjin Fish Market <span class="kr" style="font-size:12px;color:var(--ink-soft)">노량진수산시장</span></h4>
+        <div class="meta">OPEN ROUND THE CLOCK · LINE 9 FROM DANGSAN · BEST 11:00–14:00 / 17:00–19:00</div>
+        <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Korea-Seoul-Noryangjin_Fish_Market-03.jpg/960px-Korea-Seoul-Noryangjin_Fish_Market-03.jpg" alt="Noryangjin Fish Market"></figure>
+        <p>Pick live seafood downstairs, eat it sliced raw or cooked upstairs minutes later. <b>Lock the total price before anything is weighed or killed</b>, watch the scale, and confirm the upstairs table fee (~₩4–6k/person) plus per-dish cooking fees before sitting. Order the leftover bones as spicy maeuntang soup — one fish, two courses. Swap into any lunch slot, ideally Day 8.</p>
+      </div>
+      <div class="xcard rv">
+        <h4>Mullae Art Village <span class="kr" style="font-size:12px;color:var(--ink-soft)">문래창작촌</span></h4>
+        <div class="meta">4 STOPS FROM HONGIK ON LINE 2 · BEST LATE AFTERNOON / EVENING</div>
+        <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Mullae-dong_cityscape.jpg/960px-Mullae-dong_cityscape.jpg" alt="Mullae-dong workshops"></figure>
+        <p>Working steel-workshop alleys colonized by artists — welding sparks next to galleries. Time Out's #6 coolest neighborhood in the world (2025), with redevelopment approved late 2025: <b>a genuine see-it-before-it's-gone</b>. The easiest spontaneous evening on this list.</p>
+      </div>
+      <div class="xcard rv">
+        <h4>Oil Tank Culture Park <span class="kr" style="font-size:12px;color:var(--ink-soft)">문화비축기지</span></h4>
+        <div class="meta">TANKS 10:00–18:00 · CLOSED MON · FREE · WORLD CUP STADIUM STN (L6)</div>
+        <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Oil-tank-culture-park.jpg/960px-Oil-tank-culture-park.jpg" alt="Oil Tank Culture Park"></figure>
+        <p>A 1970s secret oil depot carved into a mountainside, reborn as five tank-galleries and a glass pavilion. Pure architecture, zero crowds. Pairs with a Mangwon Market dinner — two stops from home.</p>
+      </div>
+      <div class="xcard rv">
+        <h4>Hangang Outdoor Pools <span class="kr" style="font-size:12px;color:var(--ink-soft)">한강수영장</span></h4>
+        <div class="meta">JUN 20 – AUG 31 · 09:00–22:00 · ~₩5–6K · TTUKSEOM (L7) / YEOUIDO (L5)</div>
+        <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ttukseom_Hangang_Park_20260416_6.jpg/960px-Ttukseom_Hangang_Park_20260416_6.jpg" alt="Ttukseom Hangang Park pool area"></figure>
+        <p>Swimming in a riverside park with the skyline behind you — peak Seoul summer, and tourists never go. The honest answer to a 34°C afternoon when no museum appeals.</p>
+      </div>
+      <div class="xcard rv">
+        <h4>E-Land Moonlight Cruise <span class="kr" style="font-size:12px;color:var(--ink-soft)">한강유람선</span></h4>
+        <div class="meta">20:20 NIGHTLY · 70 MIN · ₩29,900 · BOOK 1+ DAY AHEAD · YEOUINARU (L5)</div>
+        <p>Live jazz, lit bridges, and a water-level pass of the Banpo fountain show. Friday adds an onboard-fireworks version (₩45,900). Cancels in heavy rain with refund — book it as an upgrade to Day 8's evening, not a dependency.</p>
+      </div>
+      <div class="xcard rv">
+        <h4>MSI 2026 — Daejeon Day Trip <span class="kr" style="font-size:12px;color:var(--ink-soft)">미드시즌 인비테이셔널</span></h4>
+        <div class="meta">JUN 28 – JUL 12 · DAEJEON CONVENTION CENTER · KTX SEOUL STN → DAEJEON ~1 H, EVERY 15–20 MIN</div>
+        <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/%EB%8C%80%EC%A0%84%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0.jpg/960px-%EB%8C%80%EC%A0%84%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0.jpg" alt="Daejeon Convention Center"></figure>
+        <p>League's Mid-Season Invitational is in Korea during your exact window — bracket-stage matches most days of your trip, finals weekend closing <b>Sun Jul 12</b>. Tickets via <b>NOL World</b> (the LCK/Riot global ticketing platform) or Interpark Global; weekday bracket days are the realistic get, the final will be long gone. It's now the centerpiece of <b>Day 2 (Mon Jul 6)</b> — KTX down after breakfast, fan fest, match, last train back ~23:00. Lock tickets the moment they drop; if none land, Day 2 falls back to the palace-west plan.</p>
+      </div>
+      <div class="xcard rv">
+        <h4>63 SkyPicnic + Centre Pompidou Hanwha</h4>
+        <div class="meta">NEW JUNE 2026 · 10:00–22:00 · ₩27K · YEOUINARU (L5)</div>
+        <figure class="ph"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/thumb/3/31/63_Building_2019.jpg/960px-63_Building_2019.jpg" alt="63 Building over the Han River"></figure>
+        <p>The golden tower's observatory reborn — and its <b>63rd-floor open-air rooftop opened for the first time in 16 years</b>, 250 m over the Han. The Pompidou outpost downstairs opened the same month. You already have two skyline nights planned; this is the third-tower option if you're hooked.</p>
+      </div>
+    </div>
+    <div class="skip-list rv">
+      <h4>Verified: Skip These in 2026</h4>
+      <ul>
+        <li><b>Garosu-gil</b> — 41.6% of storefronts vacant as of 2025; the energy moved to Apgujeong Rodeo/Dosan Park, and Seongsu scratches the same itch better.</li>
+        <li><b>Ihwa Mural Village as a destination</b> — residents removed ~70% of the murals, including the famous staircases. Fine as a 15-minute pass-through on the Day 5 wall walk; not worth its own trip.</li>
+        <li><b>London Bagel Museum, Anguk branch</b> — 2–4 hour queues persist. The Yeonnam original at 08:00, the Lotte World Mall branch, or Cafe Layered get you there without losing a morning.</li>
+        <li><b>AREX Express from Seoul Station</b> — it doesn't stop at Hongik; the all-stop train from your own station beats it on time and price both ways.</li>
+        <li><b>Gyeongbokgung night opening</b> — doesn't exist in July (spring session ended Jun 14). Anyone selling you July night-palace tickets is selling vapor.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <span>SEOUL FIELD PLAN · JUL 4–13 2026 · HOURS &amp; CLOSURES VERIFIED JUN 2026 — RE-CHECK LIVE IN NAVER MAP</span>
+    <span class="kr">잘 다녀와요</span>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.06,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const links=[...document.querySelectorAll('nav a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const nio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-20% 0px -70% 0px'});
+secs.forEach(s=>nio.observe(s));
+</script>
+</body>
+</html>
