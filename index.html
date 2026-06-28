@@ -88,6 +88,19 @@ nav a.active{background:var(--ink);color:var(--paper)}
 nav a.accent{color:var(--accent)}
 nav a.accent.active{background:var(--accent);color:var(--paper)}
 
+/* ---------- floating source-docs ---------- */
+.docs-fab{
+  position:fixed;top:64px;right:16px;z-index:950;
+  display:flex;flex-direction:column;gap:3px;align-items:flex-end;
+  background:var(--paper);border:1px solid var(--ink);padding:9px 12px;
+  box-shadow:2px 2px 0 var(--ink);font-family:var(--mono);
+}
+.docs-fab .docs-lbl{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1px}
+.docs-fab a{font-size:11.5px;letter-spacing:.03em;color:var(--accent);text-decoration:none;white-space:nowrap}
+.docs-fab a:hover{text-decoration:underline}
+@media print{.docs-fab{display:none}}
+@media(max-width:560px){.docs-fab{top:52px;right:8px;padding:7px 9px;gap:2px}.docs-fab a{font-size:10.5px}}
+
 /* ---------- shared ---------- */
 .wrap{max-width:880px;margin:0 auto;padding:0 28px}
 .section-label{
@@ -304,6 +317,29 @@ nav a.accent.active{background:var(--accent);color:var(--paper)}
 .day-note b{color:var(--ink)}
 @media(max-width:560px){.day-note{margin-left:0}}
 
+/* ---------- per-day "near here" dropdown ---------- */
+.nearby{margin:8px 0 0 86px;max-width:600px;border:1px solid var(--hairline);background:var(--paper)}
+@media(max-width:560px){.nearby{margin-left:0}}
+.nearby>summary{
+  list-style:none;cursor:pointer;padding:11px 16px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);display:flex;align-items:center;gap:9px;user-select:none;
+}
+.nearby>summary::-webkit-details-marker{display:none}
+.nearby>summary::before{content:"▸";font-size:10px;transition:transform .15s}
+.nearby[open]>summary::before{transform:rotate(90deg)}
+.nearby>summary:hover{background:var(--paper-2)}
+.nb-body{padding:2px 16px 14px}
+.nb-item{padding:8px 0;border-top:1px dashed var(--hairline);font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+.nb-item:first-child{border-top:0}
+.nb-item b{color:var(--ink)}
+.nb-tag{
+  font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.05em;
+  color:var(--accent);text-transform:uppercase;margin-right:8px;white-space:nowrap;
+}
+.nb-item a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);white-space:nowrap}
+.nb-note{margin-top:10px;padding-top:10px;border-top:1px solid var(--hairline);font-size:12.5px;color:var(--ink-soft);font-style:italic;line-height:1.5}
+
 /* ---------- extras ---------- */
 .extras{padding:70px 28px 30px}
 .x-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
@@ -355,6 +391,12 @@ footer .kr{font-family:var(--kr);color:var(--accent);font-size:14px}
 </head>
 <body>
 
+<div class="docs-fab">
+  <span class="docs-lbl">Source docs</span>
+  <a href="https://docs.google.com/document/d/1071yzC4KN3MB5oEmRKKMuZUAN9rO_OgVi0t5jSMDBOk/edit" target="_blank" rel="noopener">Food &amp; spots ↗</a>
+  <a href="https://docs.google.com/document/d/19ZHwzEr4YS_VSRR1PcFgjT41j5VTSwFlHuAM2PXXO1c/edit" target="_blank" rel="noopener">Trip notes ↗</a>
+</div>
+
 <header class="masthead">
   <div class="kicker">Field Plan · Eight Days From a Hongdae Doorstep</div>
   <h1>SEOUL<span class="kr-big">서울 · 二〇二六</span></h1>
@@ -383,6 +425,7 @@ footer .kr{font-family:var(--kr);color:var(--accent);font-size:14px}
     <a href="#d8">D8 FINALE</a>
     <a href="#dep">DEPART</a>
     <a href="#streets">ON FOOT</a>
+    <a href="#eat" class="accent">EAT</a>
     <a href="#extras" class="accent">EXTRAS</a>
   </div>
 </nav>
@@ -584,6 +627,21 @@ footer .kr{font-family:var(--kr);color:var(--accent);font-size:14px}
       <p class="tip">Jet-lag honest: if you're flagging, watch one show and go. <b>Home</b> — Line 9 express to Dangsan, then Line 2 two stops to Hongik (~35 min), or a ₩18k taxi. Rained out? Your own <b>Mangwon Hangang Park</b> sunset (10 min from the flat, best west-facing bank) is the easy make-good on any clear evening.</p>
     </li>
   </ol>
+  <details class="nearby rv">
+    <summary>Eat &amp; shop from your lists — near here</summary>
+    <div class="nb-body">
+      <div class="nb-item"><span class="nb-tag">CRAB · PIN</span><b>Jinmi Sikdang</b> (진미식당) — Mapo; Michelin Bib Gourmand <b>ganjang gejang</b> (soy raw crab). <a href="https://maps.google.com/?cid=18090633512185265939" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">NAENGMYEON</span><b>Ulmildae</b> (을밀대) — Mapo; Pyongyang-style cold buckwheat noodles since 1971, thick frosty broth. <a href="https://maps.google.com/?cid=13315222481954780214" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">JAJANG</span><b>Hyeonraejang</b> (현래장) — Mapo; old-school hand-pulled black-bean noodles. <a href="https://www.google.com/maps/search/현래장+마포" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">GALBI JJIM</span><b>Damsan</b> (담산) — Sinchon; spicy Seoul-style braised short ribs. <a href="https://www.google.com/maps/search/담산+신촌" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">GOPCHANG</span><b>Gop</b> (곱) — Daeheung/Mapo; Blue-Ribbon grilled intestines. <a href="https://www.google.com/maps/search/곱+마포" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">BBQ</span><b>Mapo Choedaepo</b> (마포최대포) — Mapo; Seoul's oldest BBQ house (1955), pork galbi &amp; salt-grilled pork. <a href="https://maps.google.com/?cid=9786756546810420329" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">OYSTER</span><b>Wooirak</b> — Mangwon Market suljib; seasonal oyster jeon, fried oysters &amp; oyster bossam. <a href="https://maps.google.com/?cid=12686151000981199085" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">BBQ</span><b>Jongguk-gil Kimchi Samgyeop</b> — Mangwon Market; pork belly with 1-yr aged kimchi (name unverified). <a href="https://maps.google.com/?q=%EA%B9%80%EC%B9%98%EC%82%BC%EA%B2%B9+%EB%A7%9D%EC%9B%90%EC%8B%9C%EC%9E%A5+Seoul" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">SHOP</span><b>Chrome Hearts</b> — the "Han's Room" is here in Hongdae.</div>
+      <div class="nb-note">Street &amp; chimaek: Hongdae and Yeonnam stalls cover hotteok, tteokbokki, kkwabaegi and gimbap; Kyochon / BBQ / BHC / Kkanbu fried-chicken branches are everywhere for a chicken-and-beer night.</div>
+    </div>
+  </details>
 </section>
 
 <!-- ================= DAY 2 ================= -->
@@ -732,6 +790,22 @@ footer .kr{font-family:var(--kr);color:var(--accent);font-size:14px}
     </li>
     <li class="leg rv"><span class="mode l3">LINE 3</span><span class="lt">Jongno 3-ga → Euljiro 3-ga</span><span class="mode l2">LINE 2</span><span class="lt">→ Hongik · ~25 min</span></li>
   </ol>
+  <details class="nearby rv">
+    <summary>Eat &amp; shop from your lists — near here</summary>
+    <div class="nb-body">
+      <div class="nb-item"><span class="nb-tag">SAMGYETANG · PIN</span><b>Muguok</b> (무국) — Anguk; North-Korean ginseng chicken soup in a 1954 hanok. <a href="https://maps.google.com/?cid=7313931906314492915" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">SALT BREAD · PIN</span><b>Soha Salt Pond</b> (소하염전) — Ikseon-dong; the salt-bread café from your list. <a href="https://maps.google.com/?cid=15181684957908534294" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">DESSERT · PIN</span><b>Cheongsudang</b> (청수당) — Ikseon-dong; Japanese dessert café and garden. <a href="https://maps.google.com/?cid=6866984292403809692" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">BAKERY · PIN</span><b>Cafe Onion Anguk</b> (어니언) — Anguk; sugar-dusted pandoro. <a href="https://maps.google.com/?cid=5123135895525407385" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">TEPPAN</span><b>Takeo Hormone</b> (다케오) — Euljiro; daechang, steak &amp; yakisoba seared on a 200°C iron plate. <a href="https://maps.google.com/?cid=10643914805381254875" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">NAENGMYEON</span><b>Woolaeok</b> (우래옥) — Euljiro; Seoul's oldest Pyongyang-naengmyeon house (1946), also famous bulgogi. <a href="https://maps.google.com/?cid=8303913792532717456" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">MANDU</span><b>Gaeseong Mandu Koong</b> (개성만두 궁) — Insadong; Bib Gourmand handmade dumplings in a hanok. <a href="https://www.google.com/maps/search/개성만두+궁+인사동" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">HANJEONGSIK</span><b>Yongsusan</b> (용수산) — Bukchon; Gaeseong-style course from ~₩38k. <a href="https://www.google.com/maps/search/용수산+비원점" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">BAKERY</span><b>Mill Toast</b> — Ikseon-dong; pillowy chestnut &amp; sweet-potato toast, ~30-min wait. <a href="https://maps.google.com/?cid=15225950234829982745" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">CAFE</span><b>Nakwon Station</b> — Ikseon-dong; vintage train-station-themed café, drinks &amp; cakes. <a href="https://maps.google.com/?cid=17394025400003789829" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">JOKBAL · HOP</span><b>Pyeongando Jokbaljip</b> (평안도족발집) — the OG of the Jangchung-dong jokbal alley, an easy hop east via Euljiro/Dongdaemun. <a href="https://maps.google.com/?cid=5654246037001569386" target="_blank" rel="noopener">map ↗</a></div>
+    </div>
+  </details>
 </section>
 
 <!-- ================= DAY 4 ================= -->
@@ -798,6 +872,22 @@ footer .kr{font-family:var(--kr);color:var(--accent);font-size:14px}
     </li>
     <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">8 min to City Hall</span><span class="mode l2">LINE 2</span><span class="lt">→ Hongik direct · ~22 min</span></li>
   </ol>
+  <details class="nearby rv">
+    <summary>Eat &amp; shop from your lists — near here</summary>
+    <div class="nb-body">
+      <div class="nb-item"><span class="nb-tag">NOODLE · PIN</span><b>Jalpajin</b> (잘파진) — Seochon; 100% buckwheat memil noodles, bossam, makgeolli. <a href="https://maps.google.com/?cid=4480542115467206642" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">SAMGYETANG</span><b>Tosokchon</b> (토속촌) — Seochon, beside Gyeongbokgung; the famous one — expect a lunch line. <a href="https://www.google.com/maps/search/토속촌삼계탕" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">SAMGYETANG</span><b>Goryeo Samgyetang</b> (고려삼계탕) — Seosomun; Bib Gourmand, the locals' alternative. <a href="https://www.google.com/maps/search/고려삼계탕+서소문" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">KIMCHI JJIGAE</span><b>Gwanghwamun Jip</b> (광화문집) — tiny 30-year pork kimchi-jjigae institution. <a href="https://www.google.com/maps/search/광화문집+김치찌개" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">SUNDUBU</span><b>Bukchangdong Sundubu</b> (북창동순두부) — flagship behind City Hall; crack the egg into the pot. <a href="https://www.google.com/maps/search/북창동순두부+본점" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">JAJANG</span><b>Gaehwa</b> (개화) — Myeongdong; 50+ year Korean-Chinese, jjajang &amp; tangsuyuk. <a href="https://www.google.com/maps/search/개화+명동" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">NAENGMYEON</span><b>Pildong Myeonok</b> (필동면옥) — Chungmuro; Bib Gourmand Pyongyang naengmyeon. <a href="https://www.google.com/maps/search/필동면옥" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">HANJEONGSIK</span><b>Korea House</b> (한국의집) — Pil-dong; banquet course, reserve ahead. <a href="https://www.google.com/maps/search/한국의집" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">MANDU</span><b>Jaha Son Mandu</b> (자하손만두) — Buam-dong, north of the palace (bus/taxi); Bib Gourmand. <a href="https://www.google.com/maps/search/자하손만두+부암동" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">MARKET · PIN</span><b>Namdaemun Market</b> (남대문시장) — galchi-jorim alley, hotteok, kalguksu (street food). <a href="https://maps.google.com/?cid=14787317685547704417" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">SHOP · TIP</span><b>Lotte Dept Store Myeongdong</b> (롯데백화점) — grab a free tourist T-money card at the service desk (passport + free membership). <a href="https://maps.google.com/?cid=8635654260314479284" target="_blank" rel="noopener">map ↗</a></div>
+    </div>
+  </details>
   <div class="day-note rv"><b>Pacing valve:</b> three palaces, a shrine, two museums and a department store is a lot of ground. If the morning runs long, drop the Folk Museum and trim Gwanghwamun — but do <b>not</b> skip the 16:00 Jongmyo tour, there's no later English one.</div>
 </section>
 
@@ -854,6 +944,19 @@ footer .kr{font-family:var(--kr);color:var(--accent);font-size:14px}
     </li>
     <li class="leg rv"><span class="mode walk">WALK</span><span class="lt">5 min to Euljiro 4-ga</span><span class="mode l2">LINE 2</span><span class="lt">→ Hongik direct · ~25 min</span></li>
   </ol>
+  <details class="nearby rv">
+    <summary>Eat &amp; shop from your lists — near here</summary>
+    <div class="nb-body">
+      <div class="nb-item"><span class="nb-tag">BBQ · PIN</span><b>Mongtan</b> (몽탄) — Yongsan; woodfire-smoked udae galbi &amp; brisket. Reserve. <a href="https://maps.google.com/?cid=2490571748219784788" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">BBQ · PIN</span><b>Namyeong Don</b> (남영돈) — Yongsan; charcoal pork loin &amp; gabrisal. Long waits. <a href="https://maps.google.com/?cid=3301644014042525283" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">MARKET · PIN</span><b>Gwangjang Market</b> (광장시장) — today's dinner stop and a street-food checklist in one. <a href="https://maps.google.com/?cid=15444711502569316164" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">PORK GALBI</span><b>Pyongwan Sootbul Galbi</b> — Jongno 5-ga backstreets, by Gwangjang; outdoor charcoal pork-galbi (name unverified). <a href="https://maps.google.com/?q=%EC%88%AB%EB%B6%88%EA%B0%88%EB%B9%84+%EC%A2%85%EB%A1%9C5%EA%B0%80+%EC%95%BC%EC%9E%A5+Seoul" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">HANWOO</span><b>Hanmi Juksan Yutong</b> (한미축산) — Majang Meat Market, just east; buy 1++ Hanwoo at retail and grill it upstairs. <a href="https://maps.google.com/?cid=8437478150989856966" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">MAKGEOLLI</span><b>Chunpoong Brewery</b> (춘풍양조장) — Yaksu-dong; Seoul's first public craft makgeolli brewery + superb jeon. <a href="https://maps.google.com/?cid=6430678546217548084" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">NK NOODLE</span><b>Manpo Makguksu</b> (만포막국수) — Yaksu; Pyongyang-style steamed chicken (jjimdak) &amp; makguksu since 1978. <a href="https://maps.google.com/?cid=8393263917181977363" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-note">Gwangjang ticks off bindaetteok, yukhoe, mung-bean pancake, yukjeon and mayak gimbap from your foods list — no separate restaurant needed. The Yaksu / Majang spots above sit just east of Gwangjang, an easy tack-on to the dinner end of the day.</div>
+    </div>
+  </details>
   <div class="day-note rv"><b>Pacing valve:</b> Leeum, the War Memorial and the National Museum back-to-back is a museum marathon. If your legs give out, the National Museum's one essential is the <b>Room of Quiet Contemplation</b> — 30 minutes door to door — and Yongsan Park is the first thing to cut. Don't skip Gwangjang; that's dinner.</div>
 </section>
 
@@ -926,6 +1029,19 @@ footer .kr{font-family:var(--kr);color:var(--accent);font-size:14px}
       <div class="meta"><span>24H · FREE</span><span>L2 JAMSIL → HONGIK DIRECT, ~45 MIN</span></div>
     </li>
   </ol>
+  <details class="nearby rv">
+    <summary>Eat &amp; shop from your lists — near here</summary>
+    <div class="nb-body">
+      <div class="nb-item"><span class="nb-tag">CRAB · PIN</span><b>Gebang Sikdang</b> (게방식당) — Gangnam; Bib Gourmand ganjang gejang sets. <a href="https://maps.google.com/?cid=14305851714931500385" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">JOKBAL · PIN</span><b>Paldang Jokbal</b> (팔당족발) — Gangnam; slow-spiced braised trotters. <a href="https://maps.google.com/?cid=5399606257961599388" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">EEL · PIN</span><b>Haepum Eel</b> (해품장팔팔장어) — Dogok; freshwater eel on a smokeless grill. <a href="https://maps.google.com/?cid=3939231281170726457" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">GOPCHANG</span><b>Gom Ba Wie</b> (곰바위) — Samseong, by COEX; charcoal yang &amp; daechang, ~30 yrs. <a href="https://www.google.com/maps/search/곰바위+삼성동" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">DESSERT</span><b>Rafre Fruit</b> — Seongsu; seasonal cherry-blossom strawberry crepe cake (Seongsu only, expect lines). <a href="https://maps.google.com/?cid=562516267225097884" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">JOKBAL</span><b>Ibukjip</b> (이북집) — Gangnam, by Yongdong Market; pungent five-spice jokbal + buckwheat jangbang guksu (location unverified). <a href="https://maps.google.com/?q=%EC%9D%B4%EB%B6%81%EC%A7%91+%EC%98%81%EB%8F%99%EC%8B%9C%EC%9E%A5+%EA%B0%95%EB%82%A8+Seoul" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">CAFE</span><b>Cafe Onion Seongsu</b> (어니언 성수) — the original industrial-chic branch, if you're in Seongsu.</div>
+      <div class="nb-item"><span class="nb-tag">SHOP</span><b>Chrome Hearts</b> flagship (Gangnam) &amp; <b>Gentle Monster</b> flagship (Sinsa) — buy GM at duty-free to skip the tax refund.</div>
+    </div>
+  </details>
   <div class="day-note rv"><b>Pacing valve:</b> this day has the most ground. Trim guilt-free in this order: Seokchon loop → Kwangya → Starfield. Don't trim the deer, HAUS NOWHERE, or the tower.</div>
 </section>
 
@@ -1008,6 +1124,16 @@ footer .kr{font-family:var(--kr);color:var(--accent);font-size:14px}
       <p class="tip">Sold out? <b>Pul Ddeutneun Dwaeji</b> in Yeonnam does minari samgyeopsal as the backup. Stroll home through Hongdae one last time. Pack tonight.</p>
     </li>
   </ol>
+  <details class="nearby rv">
+    <summary>Eat &amp; shop from your lists — near here</summary>
+    <div class="nb-body">
+      <div class="nb-item"><span class="nb-tag">BOSSAM · PIN</span><b>Manbae Arirang Bossam</b> (만배아리랑보쌈) — Deungchon (L9); 35-yr bossam + free kalguksu. <a href="https://maps.google.com/?cid=6045746796551470687" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">EEL · PIN</span><b>Jangsimdo Black</b> (장심도 블랙) — Magok; charcoal eel, reserve ahead. <a href="https://maps.google.com/?cid=12148723105308492522" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">SEAFOOD</span><b>Unido</b> (우니도) — Yeouido; heaping tuna rice bowls &amp; uni/ikura platters in The Hyundai Seoul (B1). <a href="https://maps.google.com/?cid=16872070923875583524" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-item"><span class="nb-tag">PORK GALBI</span><b>Buldak Sikdang</b> (불닭식당) — Yeongdeungpo; '80s charcoal dwaeji-galbi house, handmade banchan (name unverified). <a href="https://maps.google.com/?q=Buldak+Sikdang+%EB%8F%BC%EC%A7%80%EA%B0%84%EB%B9%84+Yeongdeungpo+Seoul" target="_blank" rel="noopener">map ↗</a></div>
+      <div class="nb-note">The far-west pins (Manbae, Jangsimdo) fold into this west-side day; Yeouido's Unido sits right on the route, and Mapo's Ulmildae and Jinmi Sikdang (Day 1 list) are on the way home.</div>
+    </div>
+  </details>
 </section>
 
 <!-- ================= DEPARTURE ================= -->
@@ -1051,6 +1177,96 @@ footer .kr{font-family:var(--kr);color:var(--accent);font-size:14px}
       <div class="g-row rv"><span class="gd">16 MIN</span><span class="gn">CRAFT</span><span class="gt">Dongjin Market &amp; the Yeonnam side alleys <small>— craft-flea market and food lane, busiest on weekends</small></span><span class="ga">YEONNAM</span></div>
       <div class="g-row rv"><span class="gd">L6 · 2 STOP</span><span class="gn">FOOD</span><span class="gt">Mangri-dan-gil &amp; Mangwon Market <small>— foodie street + a covered (rainproof) market arcade</small></span><span class="ga">MANGWON</span></div>
       <div class="g-row rv"><span class="gd">TAXI 8M</span><span class="gn">BAKE</span><span class="gt">Yeonhui-dong <small>— leafy, upscale bakery-and-cafe streets north of Yeonnam</small></span><span class="ga">YEONHUI</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EAT & SHOP ================= -->
+<section class="extras" id="eat">
+  <div class="wrap" style="padding:0">
+    <div class="section-label">The Eat List — Pinned &amp; Mapped</div>
+    <p style="max-width:640px;font-size:15px;color:var(--ink-soft);margin-bottom:20px">Folded in from your food docs and sorted onto the days they're nearest — the same spots also appear in each day's <b>"near here"</b> dropdown above. <b>Tap any row to open its Google Maps pin.</b> A few (Dunkin' Wonders, Heuksando Hongeo, Moran Market) have no fixed day — slot them in if you're passing. Re-check hours live in Naver.</p>
+    <div class="glance-grid">
+      <a class="g-row rv" href="https://maps.google.com/?cid=2490571748219784788" target="_blank" rel="noopener"><span class="gd">BBQ</span><span class="gn">YONGSAN</span><span class="gt">Mongtan <small>— woodfire-smoked udae galbi &amp; brisket; wildly popular</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=3301644014042525283" target="_blank" rel="noopener"><span class="gd">BBQ</span><span class="gn">YONGSAN</span><span class="gt">Namyeong Don <small>— charcoal-grilled pork, seasoned loin &amp; gabrisal; long waits</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=6045746796551470687" target="_blank" rel="noopener"><span class="gd">BOSSAM</span><span class="gn">DEUNGCHON</span><span class="gt">Manbae Arirang Bossam <small>— 35-yr bossam, thin gabrisal pork + free kalguksu · also in Saved Eats</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=5399606257961599388" target="_blank" rel="noopener"><span class="gd">JOKBAL</span><span class="gn">GANGNAM</span><span class="gt">Paldang Jokbal <small>— slow-spiced braised trotters; chef Ahn Sung-jae–endorsed</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=14305851714931500385" target="_blank" rel="noopener"><span class="gd">CRAB</span><span class="gn">GANGNAM</span><span class="gt">Gebang Sikdang <small>— Michelin Bib Gourmand ganjang gejang (soy raw crab) sets</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=18090633512185265939" target="_blank" rel="noopener"><span class="gd">CRAB</span><span class="gn">MAPO</span><span class="gt">Jinmi Sikdang <small>— Michelin Bib Gourmand ganjang gejang rice meals</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=3939231281170726457" target="_blank" rel="noopener"><span class="gd">EEL</span><span class="gn">DOGOK</span><span class="gt">Haepum Eel <span class="kr">팔팔장어</span> <small>— freshwater eel on a smokeless grill; lamb ribs, eel soup</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=12148723105308492522" target="_blank" rel="noopener"><span class="gd">EEL</span><span class="gn">MAGOK</span><span class="gt">Jangsimdo Black <span class="kr">장심도</span> <small>— charcoal eel, "prettiest eel house"; reservations essential</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=10512087979443810332" target="_blank" rel="noopener"><span class="gd">POT RICE</span><span class="gn"></span><span class="gt">Solsot <small>— premium stone-pot sotbap: beef, eel, salmon</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=7313931906314492915" target="_blank" rel="noopener"><span class="gd">SAMGYE</span><span class="gn">ANGUK</span><span class="gt">Muguok <small>— North-Korean ginseng chicken soup in a 1954 hanok</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=4480542115467206642" target="_blank" rel="noopener"><span class="gd">NOODLE</span><span class="gn">SEOCHON</span><span class="gt">Jalpajin <small>— 100% buckwheat memil noodles; bossam, dumplings, makgeolli</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=15444711502569316164" target="_blank" rel="noopener"><span class="gd">MARKET</span><span class="gn">JONGNO</span><span class="gt">Gwangjang Market <small>— bindaetteok, mayak gimbap, yukhoe</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=14787317685547704417" target="_blank" rel="noopener"><span class="gd">MARKET</span><span class="gn">JUNG-GU</span><span class="gt">Namdaemun Market <small>— street-food alleys: galchi stew, hotteok, kalguksu</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=5123135895525407385" target="_blank" rel="noopener"><span class="gd">BAKERY</span><span class="gn">ANGUK</span><span class="gt">Cafe Onion <small>— industrial bakery café; sugar-dusted pandoro</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=15181684957908534294" target="_blank" rel="noopener"><span class="gd">BAKERY</span><span class="gn">IKSEON</span><span class="gt">Soha Salt Pond <small>— salt-bread café; milk-cream, truffle, mentaiko + a salt pond</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=6866984292403809692" target="_blank" rel="noopener"><span class="gd">DESSERT</span><span class="gn">IKSEON</span><span class="gt">Cheongsudang <small>— Japanese dessert café &amp; garden; soufflé, castella</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=10643914805381254875" target="_blank" rel="noopener"><span class="gd">TEPPAN</span><span class="gn">EULJIRO</span><span class="gt">Takeo Hormone <span class="kr">다케오</span> <small>— daechang, steak &amp; yakisoba on a 200°C iron plate</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=8303913792532717456" target="_blank" rel="noopener"><span class="gd">NAENGMYEON</span><span class="gn">EULJIRO</span><span class="gt">Woolaeok <span class="kr">우래옥</span> <small>— Seoul's classic Pyongyang naengmyeon (since 1946)</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=13315222481954780214" target="_blank" rel="noopener"><span class="gd">NAENGMYEON</span><span class="gn">MAPO</span><span class="gt">Ulmildae <span class="kr">을밀대</span> <small>— Pyongyang naengmyeon, thick frosty broth</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=9786756546810420329" target="_blank" rel="noopener"><span class="gd">BBQ</span><span class="gn">MAPO</span><span class="gt">Mapo Choedaepo <span class="kr">마포최대포</span> <small>— Seoul's oldest BBQ (1955); pork galbi &amp; salt-grilled pork</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=8437478150989856966" target="_blank" rel="noopener"><span class="gd">HANWOO</span><span class="gn">MAJANG</span><span class="gt">Hanmi Juksan Yutong <span class="kr">한미축산</span> <small>— 1++ Hanwoo at retail; grill it upstairs at Majang Market</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=5654246037001569386" target="_blank" rel="noopener"><span class="gd">JOKBAL</span><span class="gn">JANGCHUNG</span><span class="gt">Pyeongando Jokbaljip <span class="kr">평안도족발집</span> <small>— OG of the Jangchung-dong jokbal alley</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?q=%EC%9D%B4%EB%B6%81%EC%A7%91+%EC%98%81%EB%8F%99%EC%8B%9C%EC%9E%A5+%EA%B0%95%EB%82%A8+Seoul" target="_blank" rel="noopener"><span class="gd">JOKBAL</span><span class="gn">GANGNAM</span><span class="gt">Ibukjip <span class="kr">이북집</span> <small>— five-spice jokbal + buckwheat guksu · location unverified</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=8393263917181977363" target="_blank" rel="noopener"><span class="gd">NK NOODLE</span><span class="gn">YAKSU</span><span class="gt">Manpo Makguksu <span class="kr">만포막국수</span> <small>— Pyongyang jjimdak + makguksu since 1978</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=6430678546217548084" target="_blank" rel="noopener"><span class="gd">MAKGEOLLI</span><span class="gn">YAKSU</span><span class="gt">Chunpoong Brewery <span class="kr">춘풍양조장</span> <small>— Seoul's first public craft makgeolli brewery + jeon</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=12686151000981199085" target="_blank" rel="noopener"><span class="gd">OYSTER</span><span class="gn">MANGWON</span><span class="gt">Wooirak <small>— Mangwon Market suljib; oyster jeon, fried oysters, oyster bossam</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?q=%EA%B9%80%EC%B9%98%EC%82%BC%EA%B2%B9+%EB%A7%9D%EC%9B%90%EC%8B%9C%EC%9E%A5+Seoul" target="_blank" rel="noopener"><span class="gd">BBQ</span><span class="gn">MANGWON</span><span class="gt">Jongguk-gil Kimchi Samgyeop <small>— pork belly + 1-yr aged kimchi, minari bulgogi · name unverified</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=16872070923875583524" target="_blank" rel="noopener"><span class="gd">SEAFOOD</span><span class="gn">YEOUIDO</span><span class="gt">Unido <span class="kr">우니도</span> <small>— tuna rice bowls &amp; uni/ikura platters, The Hyundai B1</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?q=Buldak+Sikdang+%EB%8F%BC%EC%A7%80%EA%B0%84%EB%B9%84+Yeongdeungpo+Seoul" target="_blank" rel="noopener"><span class="gd">PORK GALBI</span><span class="gn">YEONGDEUNGPO</span><span class="gt">Buldak Sikdang <span class="kr">불닭식당</span> <small>— '80s charcoal dwaeji-galbi house · name unverified</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?q=%EC%88%AB%EB%B6%88%EA%B0%88%EB%B9%84+%EC%A2%85%EB%A1%9C5%EA%B0%80+%EC%95%BC%EC%9E%A5+Seoul" target="_blank" rel="noopener"><span class="gd">PORK GALBI</span><span class="gn">JONGNO 5</span><span class="gt">Pyongwan Sootbul Galbi <small>— outdoor charcoal pork-galbi, Jongno 5-ga backstreets · name unverified</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=4726984539921950885" target="_blank" rel="noopener"><span class="gd">SKATE</span><span class="gn"></span><span class="gt">Heuksando Hongeo <span class="kr">흑산도홍어</span> <small>— aged fermented skate (hongeo) samhap course; acquired taste</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=562516267225097884" target="_blank" rel="noopener"><span class="gd">DESSERT</span><span class="gn">SEONGSU</span><span class="gt">Rafre Fruit <small>— Seongsu fruit café; strawberry crepe cake (expect lines)</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=15225950234829982745" target="_blank" rel="noopener"><span class="gd">BAKERY</span><span class="gn">IKSEON</span><span class="gt">Mill Toast <small>— chestnut &amp; sweet-potato toast; worth the ~30-min wait</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=17394025400003789829" target="_blank" rel="noopener"><span class="gd">CAFE</span><span class="gn">IKSEON</span><span class="gt">Nakwon Station <small>— Ikseon café, vintage train-station theme</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=5505977749740059302" target="_blank" rel="noopener"><span class="gd">DONUTS</span><span class="gn"></span><span class="gt">Dunkin' Wonders <small>— luxury flagship; crème brûlée &amp; matcha-puff donuts</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=32907708619151497" target="_blank" rel="noopener"><span class="gd">MARKET</span><span class="gn">SEONGNAM</span><span class="gt">Moran Market <small>— Korea's biggest 5-day market; opens days ending 4 &amp; 9 only</small></span><span class="ga">MAP ↗</span></a>
+      <a class="g-row rv" href="https://maps.google.com/?cid=8635654260314479284" target="_blank" rel="noopener"><span class="gd">DEPT · TIP</span><span class="gn">MYEONGDONG</span><span class="gt">Lotte Dept Store <small>— free tourist T-money card at the service desk (passport + membership)</small></span><span class="ga">MAP ↗</span></a>
+    </div>
+
+    <div class="section-label" style="margin-top:40px">Foods to Try<span id="foodCount" class="ck-count">0 / 0</span></div>
+    <div class="ck-grid">
+      <div class="ck-col full rv">
+        <div class="ck-pack">
+          <label class="ck-item"><input type="checkbox" id="food-gopchang"><span><b>Gopchang</b> — grilled beef intestines</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-kyochon"><span><b>Kyochon</b> chicken — honey combo</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-bbqchx"><span><b>BBQ</b> chicken — Hwanggeum (golden) Olive</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-bhc"><span><b>BHC</b> — Ppuring-keul (the cheese-powder one)</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-kkanbu"><span><b>Kkanbu</b> chicken</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-gimbap"><span><b>Gimbap</b></span></label>
+          <label class="ck-item"><input type="checkbox" id="food-rabokki"><span><b>Rabokki</b> — ramen + tteokbokki</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-saltbread"><span><b>Salt bread + coffee</b> — a bakery-café morning</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-kkwabaegi"><span><b>Kkwabaegi</b> — twisted sugar doughnut</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-mandu"><span><b>Mandu</b> — dumplings</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-naengmyeon"><span><b>Bibim naengmyeon</b> — plus the North-Korean (Pyongyang) style</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-gejang"><span><b>Ganjang gejang</b> — soy-marinated raw crab</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-jokbal"><span><b>Jokbal</b> — braised pig's trotters</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-streettteok"><span><b>Street tteokbokki</b> — the stalls mixed with fried chicken &amp; more</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-yukjeon"><span><b>Yukjeon</b> — pan-fried beef</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-hotteok"><span><b>Hotteok</b> — syrup-filled griddle cake</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-bindaetteok"><span><b>Bindaetteok</b> — mung-bean pancake</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-sundubu"><span><b>Sundubu jjigae</b> — soft-tofu stew</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-kimchijjigae"><span><b>Kimchi jjigae</b></span></label>
+          <label class="ck-item"><input type="checkbox" id="food-galbijjim"><span><b>Galbi jjim</b> — braised short ribs</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-buldak"><span><b>Street buldak</b> — pile everything on; as an omelette too</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-jajang"><span><b>Jajangmyeon</b> — the blacker the better</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-samgyetang"><span><b>Samgyetang</b> — ginseng chicken soup</span></label>
+          <label class="ck-item"><input type="checkbox" id="food-hanjeongsik"><span><b>Hanjeongsik</b> — one proper Korean banquet</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:40px">Shopping &amp; Services</div>
+    <div class="bcard full rv">
+      <h3>From Your Notes</h3>
+      <ul>
+        <li><span class="when soft">GANGNAM</span><span><b>Chrome Hearts</b> — flagship in Gangnam; the "Han's Room" in Hongdae; plus a counter on a department store's first floor near the duty-free area (not the duty-free shop itself).</span></li>
+        <li><span class="when soft">SINSA</span><span><b>Gentle Monster</b> — flagship in Gangnam / Sinsa. Buy at the <b>duty-free store</b> for less hassle — no tax-refund paperwork.</span></li>
+        <li><span class="when soft">SUYU · L4</span><span><b>Suyu night market</b> — a night market that isn't touristy, up north at Suyu Stn.</span></li>
+        <li><span class="when amb">WHILE HERE</span><span><b>Korean haircut</b> — cheap and very good; book a Hongdae or Gangnam salon a day ahead.</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -1162,10 +1378,10 @@ const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(B
 const nio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-20% 0px -70% 0px'});
 secs.forEach(s=>nio.observe(s));
 (function(){
-  const boxes=[...document.querySelectorAll('.ck-item input')];
-  const out=document.getElementById('ckCount');
-  const render=()=>{const n=boxes.filter(b=>b.checked).length;if(out)out.textContent=n+' / '+boxes.length};
-  boxes.forEach(b=>{
+  const all=[...document.querySelectorAll('.ck-item input')];
+  const countInto=(sel,id)=>{const out=document.getElementById(id);if(!out)return;const b=[...document.querySelectorAll(sel)];out.textContent=b.filter(x=>x.checked).length+' / '+b.length};
+  const render=()=>{countInto('#prep .ck-item input','ckCount');countInto('#eat .ck-item input','foodCount')};
+  all.forEach(b=>{
     const k='bhseoul_'+b.id;
     try{if(localStorage.getItem(k)==='1')b.checked=true}catch(e){}
     b.addEventListener('change',()=>{try{localStorage.setItem(k,b.checked?'1':'0')}catch(e){}render()});
