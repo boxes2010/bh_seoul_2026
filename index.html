@@ -408,6 +408,11 @@ footer .kr{font-family:var(--kr);color:var(--accent);font-size:14px}
 .nm-name{font-size:14px;color:var(--ink);font-weight:600;line-height:1.3}
 .nm-desc{font-size:12px;color:var(--ink-soft);line-height:1.4;margin:2px 0 1px}
 .nm-day{font-family:var(--mono);font-size:10px;color:var(--ink-soft);letter-spacing:.04em;text-transform:uppercase}
+.nm-btns{display:flex;gap:7px;margin-top:7px;flex-wrap:wrap}
+.nm-btn{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;padding:6px 11px;border:1px solid currentColor;border-radius:3px;line-height:1}
+.nm-btn.g{color:#1A73E8}
+.nm-btn.n{color:#03C75A}
+.nm-btn:active{opacity:.65}
 .nm-status{padding:16px 14px;font-size:13px;color:var(--ink-soft);line-height:1.5}
 .nm-foot{padding:9px 14px;border-top:1px solid var(--hairline);font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;color:var(--ink-soft);text-transform:uppercase}
 @media print{.nearme-fab,.nm-panel{display:none}}
@@ -1436,7 +1441,7 @@ const PLACES=[{"n":"First Walk: Hongdae Streets","s":"Drop bags, walk 6 minutes 
    var la=p.coords.latitude,lo=p.coords.longitude;
    var r=PLACES.map(function(x){return {x:x,d:dist(la,lo,x.c[0],x.c[1])}}).sort(function(a,b){return a.d-b.d}).slice(0,15);
    status.style.display='none';
-   list.innerHTML=r.map(function(o){return '<div class="nm-row"><span class="nm-dist">'+fmt(o.d)+'</span><span class="nm-info"><div class="nm-name">'+esc(o.x.n)+'</div>'+(o.x.s?'<div class="nm-desc">'+esc(o.x.s)+'</div>':'')+'<div class="nm-day">'+esc(o.x.d)+'</div></span>'+pins(o.x.g,o.x.v)+'</div>'}).join('');
+   list.innerHTML=r.map(function(o){return '<div class="nm-row"><span class="nm-dist">'+fmt(o.d)+'</span><span class="nm-info"><div class="nm-name">'+esc(o.x.n)+'</div>'+(o.x.s?'<div class="nm-desc">'+esc(o.x.s)+'</div>':'')+'<div class="nm-day">'+esc(o.x.d)+'</div><div class="nm-btns"><a class="nm-btn g" href="'+o.x.g+'" target="_blank" rel="noopener">Google Maps \u2197</a><a class="nm-btn n" href="'+o.x.v+'" target="_blank" rel="noopener">Naver \u2197</a></div></span></div>'}).join('');
   },function(e){status.textContent=e.code===1?'Location permission denied \u2014 enable it in your browser to see what\u2019s nearby.':'Could not get your location. Try again, ideally outdoors.';},{enableHighAccuracy:true,timeout:10000,maximumAge:60000});
  }
  btn.addEventListener('click',function(){var o=panel.classList.toggle('open');if(o)locate()});
